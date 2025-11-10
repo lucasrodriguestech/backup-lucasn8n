@@ -344,21 +344,23 @@
         "operation": "append",
         "documentId": {
           "__rl": true,
-          "value": "https://docs.google.com/spreadsheets/d/1oDYiUM1QexeR4tAxv_AWvvFbcOxocWag2xa2iWa24lw/edit?gid=0#gid=0",
-          "mode": "url"
+          "value": "1oDYiUM1QexeR4tAxv_AWvvFbcOxocWag2xa2iWa24lw",
+          "mode": "list",
+          "cachedResultName": "Posta no Tiktok Saude Alegria",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1oDYiUM1QexeR4tAxv_AWvvFbcOxocWag2xa2iWa24lw/edit?usp=drivesdk"
         },
         "sheetName": {
           "__rl": true,
           "value": "gid=0",
           "mode": "list",
-          "cachedResultName": "Sheet1",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit#gid=0"
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1oDYiUM1QexeR4tAxv_AWvvFbcOxocWag2xa2iWa24lw/edit#gid=0"
         },
         "columns": {
           "mappingMode": "defineBelow",
           "value": {
-            "Title": "={{ $json.titulo }}",
-            "Video URL": "=https://drive.google.com/uc?export={{ $json.id }}"
+            "Video URL": "=https://drive.google.com/uc?export=download&id={{ $json.id }}",
+            "Title": "={{ $json.titulo }}"
           },
           "matchingColumns": [],
           "schema": [
@@ -369,8 +371,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             },
             {
               "id": "Title",
@@ -379,8 +380,7 @@
               "defaultMatch": false,
               "display": true,
               "type": "string",
-              "canBeUsedToMatch": true,
-              "removed": false
+              "canBeUsedToMatch": true
             }
           ],
           "attemptToConvertTypes": false,
@@ -447,6 +447,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T16:05:02.000Z",
-  "versionId": "39b26207-6659-40e9-a41e-8007bc83b62a"
+  "updatedAt": "2025-11-10T17:16:30.000Z",
+  "versionId": "56dfa89a-f247-401c-bb62-c161737736a5"
 }
