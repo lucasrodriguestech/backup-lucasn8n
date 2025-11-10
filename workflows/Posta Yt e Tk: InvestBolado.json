@@ -434,7 +434,9 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": {
     "node:Schedule Trigger": {
@@ -443,6 +445,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T16:05:48.000Z",
-  "versionId": "615e0a73-51c5-4601-a4f5-32ca16ce0eac"
+  "updatedAt": "2025-11-10T17:18:34.000Z",
+  "versionId": "696178da-77da-4495-bba0-1c48fdf1c93c"
 }
