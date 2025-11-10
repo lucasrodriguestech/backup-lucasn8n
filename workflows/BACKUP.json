@@ -1,5 +1,5 @@
 {
-  "active": false,
+  "active": true,
   "connections": {
     "n8n": {
       "main": [
@@ -45,17 +45,6 @@
         ]
       ]
     },
-    "GitHub": {
-      "main": [
-        [
-          {
-            "node": "Merge",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Globals": {
       "main": [
         [
@@ -82,7 +71,7 @@
       "main": [
         [
           {
-            "node": "GitHub",
+            "node": "Get a file",
             "type": "main",
             "index": 0
           },
@@ -162,37 +151,27 @@
           }
         ]
       ]
+    },
+    "Get a file": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2025-11-10T16:08:22.217Z",
   "id": "PhyBqwvntBsFMklG",
   "isArchived": false,
-  "meta": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
   "name": "BACKUP",
   "nodes": [
-    {
-      "parameters": {
-        "authentication": "oAuth2",
-        "resource": "file",
-        "operation": "get",
-        "owner": "={{$node[\"Globals\"].json[\"repo\"][\"owner\"]}}",
-        "repository": "={{$node[\"Globals\"].json[\"repo\"][\"name\"]}}",
-        "filePath": "={{$node[\"Globals\"].json[\"repo\"][\"path\"]}}{{$json[\"name\"]}}.json",
-        "asBinaryProperty": false,
-        "additionalParameters": {}
-      },
-      "id": "bc83114e-a9b4-4071-891f-6af4d8da829d",
-      "name": "GitHub",
-      "type": "n8n-nodes-base.github",
-      "position": [
-        -800,
-        272
-      ],
-      "typeVersion": 1,
-      "alwaysOutputData": true,
-      "webhookId": "76d8fb08-0da2-4538-8502-455e1169e9db",
-      "continueOnFail": true
-    },
     {
       "parameters": {
         "dataType": "string",
@@ -274,7 +253,13 @@
         400
       ],
       "typeVersion": 1,
-      "webhookId": "72348680-8d6d-4b5d-8f43-d66c104c1816"
+      "webhookId": "72348680-8d6d-4b5d-8f43-d66c104c1816",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "zzTpXNBe1HXfGMWG",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -294,7 +279,13 @@
         592
       ],
       "typeVersion": 1,
-      "webhookId": "7b6e4cac-3432-4530-af7b-dbce2be1530e"
+      "webhookId": "7b6e4cac-3432-4530-af7b-dbce2be1530e",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "zzTpXNBe1HXfGMWG",
+          "name": "GitHub account"
+        }
+      }
     },
     {
       "parameters": {
@@ -396,7 +387,13 @@
         -1264,
         432
       ],
-      "typeVersion": 1
+      "typeVersion": 1,
+      "credentials": {
+        "n8nApi": {
+          "id": "TFaEC6HR83wc6DZE",
+          "name": "n8n account"
+        }
+      }
     },
     {
       "parameters": {
@@ -441,15 +438,48 @@
         -1648,
         432
       ]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": "={{$node[\"Globals\"].json[\"repo\"][\"owner\"]}}",
+        "repository": "={{$node[\"Globals\"].json[\"repo\"][\"name\"]}}",
+        "filePath": "={{$node[\"Globals\"].json[\"repo\"][\"path\"]}}{{$json[\"name\"]}}.json",
+        "asBinaryProperty": false,
+        "additionalParameters": {}
+      },
+      "id": "bc83114e-a9b4-4071-891f-6af4d8da829d",
+      "name": "Get a file",
+      "type": "n8n-nodes-base.github",
+      "position": [
+        -800,
+        272
+      ],
+      "typeVersion": 1,
+      "alwaysOutputData": true,
+      "webhookId": "76d8fb08-0da2-4538-8502-455e1169e9db",
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "zzTpXNBe1HXfGMWG",
+          "name": "GitHub account"
+        }
+      },
+      "continueOnFail": true
     }
   ],
   "pinData": {},
   "settings": {
     "executionOrder": "v1"
   },
-  "staticData": null,
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
   "tags": [],
-  "triggerCount": 0,
-  "updatedAt": "2025-11-10T16:09:59.000Z",
-  "versionId": "f906bdb0-79ff-46d6-8267-9453c857d90f"
+  "triggerCount": 1,
+  "updatedAt": "2025-11-10T16:16:19.000Z",
+  "versionId": "1fcf4a56-5858-4514-a89d-059f7ebc1e8c"
 }
