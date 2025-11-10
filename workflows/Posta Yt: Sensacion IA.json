@@ -1,0 +1,448 @@
+{
+  "active": true,
+  "connections": {
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organiza o título e descrição": {
+      "main": [
+        [
+          {
+            "node": "Faz Download do Vídeo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search files and folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gatilho de Agendamento": {
+      "main": [
+        [
+          {
+            "node": "Criador de títulos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Posta no Yotube": {
+      "main": [
+        [
+          {
+            "node": "Apaga do Drive Para Não Lotar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Faz Download do Vídeo": {
+      "main": [
+        [
+          {
+            "node": "Posta no Yotube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gatilho de Agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criador de títulos": {
+      "main": [
+        [
+          {
+            "node": "Organiza o título e descrição",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-10T15:48:22.317Z",
+  "id": "S1crunrAIUraJ9EE",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Posta Yt: Sensacion IA",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "https://drive.google.com/drive/folders/1h43A7rzc_ckKH3ot8ymntIp4SFjuRz0t",
+            "mode": "url"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -2048,
+        352
+      ],
+      "id": "513b18df-0777-4d45-9869-0ff6223eea17",
+      "name": "Search files and folders",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GZzhvSb2OTh5Dcx2",
+          "name": "Lucashrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "12ccda93-c33b-42a2-86b4-63a7d1c67c7c",
+              "name": "titulo",
+              "value": "={{$json.message.content.match(/título:\\s?([^\\n;]+)/i)[1].trim().replace(/(\\\\n)+$/, \"\")}}",
+              "type": "string"
+            },
+            {
+              "id": "50e423af-3bd6-4274-916b-9341d3ee36a8",
+              "name": "descricao",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "6e2486f1-8c9f-4a55-90b8-785f128f1287",
+              "name": "id",
+              "value": "={{ $item(\"0\").$node[\"Gatilho de Agendamento\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -688,
+        336
+      ],
+      "id": "a0c844c0-b218-4d35-8c6b-1021251514ec",
+      "name": "Organiza o título e descrição"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 7 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 11 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 16 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 20 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2304,
+        352
+      ],
+      "id": "935f75bf-442b-4c68-9707-1bdb6958f193",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lista = $input.all();\nif (lista.length > 0) {\n  const idx = Math.floor(Math.random() * lista.length);\n  return [{ json: lista[idx].json ? lista[idx].json : lista[idx] }];\n} else {\n  return [{ json: { erro: \"Nenhum vídeo encontrado!\" } }];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1440,
+        336
+      ],
+      "id": "28d05fe5-d5f6-4d19-ac22-0b7a3a08a338",
+      "name": "Gatilho de Agendamento"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        464,
+        272
+      ],
+      "id": "9936aa07-4ad4-4180-b69b-87ee0cf3141a",
+      "name": "Apaga do Drive Para Não Lotar",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GZzhvSb2OTh5Dcx2",
+          "name": "Lucashrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+        "regionCode": "BR",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "public"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        48,
+        320
+      ],
+      "id": "80e81c1f-8003-4470-a49a-2a8938d6f1b8",
+      "name": "Posta no Yotube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "m4dWoWXXQx0qBEnI",
+          "name": "Sensacion IA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -384,
+        336
+      ],
+      "id": "4faa1c83-d4e9-468e-a6f6-90efbaaecf79",
+      "name": "Faz Download do Vídeo",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GZzhvSb2OTh5Dcx2",
+          "name": "Lucashrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "69510c74-a1ec-4427-a86a-9c4414ab23a4",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "=null",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1840,
+        352
+      ],
+      "id": "efd5002e-6add-4f36-b5e0-5d13ad7b1714",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1472,
+        528
+      ],
+      "id": "1ba52649-5897-47dc-a2e1-0e2ca68b022e",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Título": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+            "Vídeo": "=https://drive.google.com/uc?export=download&id={{ $json.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Vídeo",
+              "displayName": "Vídeo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Título",
+              "displayName": "Título",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -304,
+        -16
+      ],
+      "id": "edc578ad-b16e-446a-a3f9-9f2535a3b693",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "VE0wOhsD3v5Kyh1j",
+          "name": "lucashrodrigues.contato1"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=voce é um assistente que cria títulos e descrição para o vídeo: {{ $json.name }}\n\nUtilze técnicas de SEO. Você está produzindo os títulos para as redes sensacion ia. Historias emocionantes, historias eengraçadas, videos realistas. Até 60 caracteres, mas prefira títulos breves. Insira até 3 hashtahs bem posicionadas no final do título. \n\nvocê retorna uma lista assim:\n\n{\ntítulo: xxx xxx xxx\n};\n{\ndescrição: xxxxxxx xxxxxxx\nxxxxxx\n};\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1136,
+        336
+      ],
+      "id": "135dd14b-b6a7-41e1-9c7c-cb811dd8280e",
+      "name": "Criador de títulos",
+      "credentials": {
+        "openAiApi": {
+          "id": "hUeuyUw9Kcd7zMUh",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-10T16:03:52.000Z",
+  "versionId": "e1cc99b7-8e42-476d-8f97-1ff19259ced2"
+}
