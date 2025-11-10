@@ -1,0 +1,448 @@
+{
+  "active": true,
+  "connections": {
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organiza o título e descrição": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Faz Download do Vídeo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search files and folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gatilho de Agendamento": {
+      "main": [
+        [
+          {
+            "node": "Criador de títulos para o investbolado",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Posta no Yotube": {
+      "main": [
+        [
+          {
+            "node": "Apaga do Drive Para Não Lotar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Faz Download do Vídeo": {
+      "main": [
+        [
+          {
+            "node": "Posta no Yotube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gatilho de Agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criador de títulos para o investbolado": {
+      "main": [
+        [
+          {
+            "node": "Organiza o título e descrição",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-10T15:23:36.736Z",
+  "id": "E3C7e9UB6vxZCLDk",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Posta Yt e Tk: Sombra Policaial",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "https://drive.google.com/drive/folders/1KII-oPReW2ETffEVxp_FbEtEx2RRDFUY",
+            "mode": "url"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -2048,
+        352
+      ],
+      "id": "7b60afde-e283-42f9-ac0f-7bc3ec81b469",
+      "name": "Search files and folders",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GZzhvSb2OTh5Dcx2",
+          "name": "Lucashrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "12ccda93-c33b-42a2-86b4-63a7d1c67c7c",
+              "name": "titulo",
+              "value": "={{$json.message.content.match(/título:\\s?([^\\n;]+)/i)[1].trim().replace(/(\\\\n)+$/, \"\")}}",
+              "type": "string"
+            },
+            {
+              "id": "50e423af-3bd6-4274-916b-9341d3ee36a8",
+              "name": "descricao",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "6e2486f1-8c9f-4a55-90b8-785f128f1287",
+              "name": "id",
+              "value": "={{ $item(\"0\").$node[\"Gatilho de Agendamento\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -688,
+        336
+      ],
+      "id": "9f33c62b-600b-4820-91eb-c6918704865b",
+      "name": "Organiza o título e descrição"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 7 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 12 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 17 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2304,
+        352
+      ],
+      "id": "33165d4c-523e-4491-a43a-8610d46f2415",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lista = $input.all();\nif (lista.length > 0) {\n  const idx = Math.floor(Math.random() * lista.length);\n  return [{ json: lista[idx].json ? lista[idx].json : lista[idx] }];\n} else {\n  return [{ json: { erro: \"Nenhum vídeo encontrado!\" } }];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1376,
+        336
+      ],
+      "id": "b0d6be9a-060a-4423-af21-34968a21abf0",
+      "name": "Gatilho de Agendamento"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        464,
+        272
+      ],
+      "id": "1393e938-ac28-4630-b5a6-558d11849b8e",
+      "name": "Apaga do Drive Para Não Lotar",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GZzhvSb2OTh5Dcx2",
+          "name": "Lucashrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+        "regionCode": "BR",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "public"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        48,
+        320
+      ],
+      "id": "a520fb71-a3ec-4a3b-9bfe-4506303eea19",
+      "name": "Posta no Yotube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "0vBlqotpLyIAmtwh",
+          "name": "SombraPolicial(personavital)"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -384,
+        336
+      ],
+      "id": "9ad98366-894c-4997-8ded-49974bcc55aa",
+      "name": "Faz Download do Vídeo",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "GZzhvSb2OTh5Dcx2",
+          "name": "Lucashrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "69510c74-a1ec-4427-a86a-9c4414ab23a4",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "=null",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1840,
+        352
+      ],
+      "id": "d813527c-0812-427a-a34f-6a698d76951a",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1472,
+        528
+      ],
+      "id": "ef5cb000-c069-4155-975b-51cf117de847",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=voce é um assistente que cria títulos e descrição para o vídeo: {{ $json.name }}\n\nUtilze técnicas de SEO. Você está produzindo os títulos para as redes sombrapolicial. Tema policial, atitude policial, notícias policiais e realidade das ruas. Até 60 caracteres, mas prefira títulos breves. Insira até 3 hashtahs bem posicionadas no final do título. \n\nvocê retorna uma lista assim:\n\n{\ntítulo: xxx xxx xxx\n};\n{\ndescrição: xxxxxxx xxxxxxx\nxxxxxx\n};\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -1136,
+        336
+      ],
+      "id": "ceaa2ada-223c-474d-960d-7f5936031a8f",
+      "name": "Criador de títulos para o investbolado",
+      "credentials": {
+        "openAiApi": {
+          "id": "hUeuyUw9Kcd7zMUh",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit?gid=0#gid=0",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Título": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+            "Vídeo": "=https://drive.google.com/uc?export=download&id={{ $json.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Vídeo",
+              "displayName": "Vídeo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Título",
+              "displayName": "Título",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -304,
+        -16
+      ],
+      "id": "bbf47025-27f8-4467-b309-08b66918a73a",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "VE0wOhsD3v5Kyh1j",
+          "name": "lucashrodrigues.contato1"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-10T15:29:57.000Z",
+  "versionId": "7ae6dd60-f62c-42f1-bb60-1ae6c2e0883e"
+}
