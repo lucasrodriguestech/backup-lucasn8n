@@ -438,6 +438,15 @@
     "timezone": "America/Sao_Paulo",
     "callerPolicy": "workflowsFromSameOwner"
   },
+  "shared": [
+    {
+      "updatedAt": "2025-11-10T15:37:11.377Z",
+      "createdAt": "2025-11-10T15:37:11.377Z",
+      "role": "workflow:owner",
+      "workflowId": "K8XPimFwcJ8EQHAw",
+      "projectId": "bO4i25vlXKSokoz6"
+    }
+  ],
   "staticData": {
     "node:Schedule Trigger": {
       "recurrenceRules": []
