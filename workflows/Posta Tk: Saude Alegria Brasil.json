@@ -45,11 +45,6 @@
         ]
       ]
     },
-    "Posta no Yotube": {
-      "main": [
-        []
-      ]
-    },
     "Faz Download do Vídeo": {
       "main": [
         [
@@ -102,12 +97,10 @@
       ]
     }
   },
-  "createdAt": "2025-11-10T15:43:32.388Z",
-  "id": "oCeXre6im5Y90AlH",
+  "createdAt": "2025-11-12T09:38:53.188Z",
+  "id": "JJiDDXVxTC96EtTY",
   "isArchived": false,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "name": "Posta Tk: Saude Alegria Brasil",
   "nodes": [
     {
@@ -118,7 +111,7 @@
         "filter": {
           "folderId": {
             "__rl": true,
-            "value": "https://drive.google.com/drive/folders/1_Vx_QymHHCQno7hXWajNp7c487hc60fe?usp=sharing",
+            "value": "https://drive.google.com/drive/folders/1_Vx_QymHHCQno7hXWajNp7c487hc60fe",
             "mode": "url"
           }
         },
@@ -127,16 +120,16 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -2048,
-        352
+        -2032,
+        384
       ],
-      "id": "39eafe55-25f4-4ed0-a51e-bcd134c83e83",
+      "id": "d3fba263-c0a1-4166-b081-676cae14c214",
       "name": "Search files and folders",
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -169,10 +162,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -688,
-        336
+        -672,
+        368
       ],
-      "id": "b6889d19-7020-4f46-b652-5d4aafb770e1",
+      "id": "40705a70-969a-434a-99ee-5c72971b73f4",
       "name": "Organiza o título e descrição"
     },
     {
@@ -197,10 +190,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2304,
-        352
+        -2288,
+        384
       ],
-      "id": "bf669261-a9d6-4069-b29d-693970398a8a",
+      "id": "28a320a4-9830-432b-87fe-990dad69583f",
       "name": "Schedule Trigger"
     },
     {
@@ -210,10 +203,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1376,
-        336
+        -1360,
+        368
       ],
-      "id": "18bf697c-29c4-424a-81ae-d1f708d0ff17",
+      "id": "18a818c5-84d9-440d-af37-c4b01a84e248",
       "name": "Gatilho de Agendamento"
     },
     {
@@ -229,15 +222,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -16,
-        -32
+        0,
+        0
       ],
-      "id": "1e54910a-1ad3-4cb9-8418-ebdc36b3f9f0",
+      "id": "5c446ef8-f6d3-461e-8192-397e9428fe6d",
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -255,17 +248,11 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        48,
-        320
+        64,
+        352
       ],
-      "id": "a4f3f2fd-9256-4338-b1b7-8699e405d997",
+      "id": "9c844354-27c7-4194-96cd-b671f84de9c8",
       "name": "Posta no Yotube",
-      "credentials": {
-        "youTubeOAuth2Api": {
-          "id": "0vBlqotpLyIAmtwh",
-          "name": "SombraPolicial(personavital)"
-        }
-      },
       "disabled": true
     },
     {
@@ -281,15 +268,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -384,
-        336
+        -368,
+        368
       ],
-      "id": "a7b9e38e-6e67-49c0-aebd-1cf6ceeef830",
+      "id": "37653f48-6c0c-4428-8639-3d7842b02866",
       "name": "Faz Download do Vídeo",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       },
       "disabled": true
@@ -322,10 +309,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1840,
-        352
+        -1824,
+        384
       ],
-      "id": "c2b8f251-b62e-4641-a6e0-5a872096bce0",
+      "id": "62c2507d-0753-4bd3-870e-e0a6268ae432",
       "name": "If"
     },
     {
@@ -333,10 +320,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -1472,
-        528
+        -1456,
+        560
       ],
-      "id": "8416457b-d4d3-4fd1-8a61-ad001f685328",
+      "id": "a70ee8fd-6eb6-4f3c-8623-29c19d738f09",
       "name": "No Operation, do nothing"
     },
     {
@@ -391,15 +378,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -304,
-        -16
+        -288,
+        16
       ],
-      "id": "85f57857-88ba-42e6-b712-3650df8cd747",
+      "id": "08e508e2-cd74-4b05-ba9a-20a7713c9cc9",
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "VE0wOhsD3v5Kyh1j",
-          "name": "lucashrodrigues.contato1"
+          "id": "2zA5xm2J8G6YQave",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -423,14 +410,14 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -1136,
-        336
+        -1120,
+        368
       ],
-      "id": "18862b07-3fff-4693-b31d-d683908dbcb6",
+      "id": "03f3c18d-d441-4ad8-9f00-3fd8657ec507",
       "name": "Criador de títulos",
       "credentials": {
         "openAiApi": {
-          "id": "hUeuyUw9Kcd7zMUh",
+          "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
       }
@@ -438,15 +425,18 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "shared": [
     {
-      "updatedAt": "2025-11-10T15:43:32.391Z",
-      "createdAt": "2025-11-10T15:43:32.391Z",
+      "updatedAt": "2025-11-12T09:38:53.190Z",
+      "createdAt": "2025-11-12T09:38:53.190Z",
       "role": "workflow:owner",
-      "workflowId": "oCeXre6im5Y90AlH",
-      "projectId": "bO4i25vlXKSokoz6"
+      "workflowId": "JJiDDXVxTC96EtTY",
+      "projectId": "NmjiBPxycE3xYO0z"
     }
   ],
   "staticData": {
@@ -456,6 +446,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T17:16:30.000Z",
-  "versionId": "56dfa89a-f247-401c-bb62-c161737736a5"
+  "updatedAt": "2025-11-12T10:58:35.000Z",
+  "versionId": "d8a9d761-bcb9-4c2e-bc94-4f17a02d4549"
 }
