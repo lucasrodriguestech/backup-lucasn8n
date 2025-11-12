@@ -16,12 +16,12 @@
       "main": [
         [
           {
-            "node": "Append row in sheet",
+            "node": "Faz Download do Vídeo",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Faz Download do Vídeo",
+            "node": "Append row in sheet",
             "type": "main",
             "index": 0
           }
@@ -102,8 +102,8 @@
       ]
     }
   },
-  "createdAt": "2025-11-10T15:32:24.097Z",
-  "id": "7C2tAtSImEmHJm6w",
+  "createdAt": "2025-11-11T23:01:17.639Z",
+  "id": "mWUIMJ6NLL7ZClTR",
   "isArchived": false,
   "meta": {
     "templateCredsSetupCompleted": true
@@ -127,16 +127,16 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -2048,
-        352
+        -1744,
+        368
       ],
-      "id": "cc787027-1a44-4748-a4a0-49c03b838006",
+      "id": "e9a79a22-5a97-4214-9abc-1db22a11f0ed",
       "name": "Search files and folders",
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -169,10 +169,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -672,
-        320
+        -368,
+        336
       ],
-      "id": "0d59427e-9f14-46c8-894d-cb047a51bee8",
+      "id": "17462f40-cd32-4a47-beab-903eaebc0865",
       "name": "Organiza o título e descrição"
     },
     {
@@ -197,10 +197,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2304,
-        352
+        -2000,
+        368
       ],
-      "id": "cd3b67de-253f-4330-89d3-5c44181bc727",
+      "id": "3fc22a5b-38df-4699-a48a-42e6e3e3e5f5",
       "name": "Schedule Trigger"
     },
     {
@@ -210,10 +210,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1376,
-        336
+        -1072,
+        352
       ],
-      "id": "10f7e493-efca-4b34-b4ad-c10a6584ab20",
+      "id": "82afa47c-c662-4e72-b930-38d29ffc6d90",
       "name": "Gatilho de Agendamento"
     },
     {
@@ -229,15 +229,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        464,
-        272
+        768,
+        288
       ],
-      "id": "922045b3-43f1-4349-8924-9968ff61fd38",
+      "id": "f7412f9b-7f17-4a81-b498-8a6d8ac4228f",
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -255,15 +255,15 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        48,
-        288
+        352,
+        304
       ],
-      "id": "6d231b7b-27d4-4253-a0db-959d3cdfd1f5",
+      "id": "63ecb19d-86d3-490d-b176-5bea689ff028",
       "name": "Posta no Yotube",
       "credentials": {
         "youTubeOAuth2Api": {
-          "id": "VZraptZW5PBm9Fo7",
-          "name": "Corte da reflexão"
+          "id": "bHVwh3oFEaIQY8y3",
+          "name": "Corte da Reflexão"
         }
       }
     },
@@ -280,15 +280,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -384,
-        336
+        -80,
+        352
       ],
-      "id": "5c0cbc15-1fea-4732-8768-3e87946526c4",
+      "id": "8b2e5b8c-884c-4a00-8d16-0a63b3ae8109",
       "name": "Faz Download do Vídeo",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -320,10 +320,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1840,
-        352
+        -1536,
+        368
       ],
-      "id": "9e8efe44-95b7-43db-ad20-bac16f792046",
+      "id": "8ca5cd9b-9497-430e-8f97-d55c8939a4e1",
       "name": "If"
     },
     {
@@ -331,10 +331,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -1472,
-        528
+        -1168,
+        544
       ],
-      "id": "707dac3a-46a9-4304-8672-a0d6b59f33ec",
+      "id": "f70a1427-7b3f-49cd-8678-9334c66f08d6",
       "name": "No Operation, do nothing"
     },
     {
@@ -387,15 +387,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -304,
-        -16
+        0,
+        0
       ],
-      "id": "1b66d7d4-4ca3-4d0b-8c2f-3d8db0fad8de",
+      "id": "33b6fbb6-5ce4-4ff1-8ba4-14f4bfeeda68",
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "VE0wOhsD3v5Kyh1j",
-          "name": "lucashrodrigues.contato1"
+          "id": "2zA5xm2J8G6YQave",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -419,14 +419,14 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -1136,
-        336
+        -832,
+        352
       ],
-      "id": "807b8c59-5ec3-41dd-b041-0a04e38a876f",
+      "id": "c7cad06a-a8ae-413a-9a12-afddcc6e5175",
       "name": "Criador de títulos",
       "credentials": {
         "openAiApi": {
-          "id": "hUeuyUw9Kcd7zMUh",
+          "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
       }
@@ -441,11 +441,11 @@
   },
   "shared": [
     {
-      "updatedAt": "2025-11-10T15:32:24.101Z",
-      "createdAt": "2025-11-10T15:32:24.101Z",
+      "updatedAt": "2025-11-11T23:01:17.642Z",
+      "createdAt": "2025-11-11T23:01:17.642Z",
       "role": "workflow:owner",
-      "workflowId": "7C2tAtSImEmHJm6w",
-      "projectId": "bO4i25vlXKSokoz6"
+      "workflowId": "mWUIMJ6NLL7ZClTR",
+      "projectId": "NmjiBPxycE3xYO0z"
     }
   ],
   "staticData": {
@@ -455,6 +455,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-11T10:42:47.000Z",
-  "versionId": "69cd2277-efb2-4689-8f0e-481f99964558"
+  "updatedAt": "2025-11-12T10:55:10.000Z",
+  "versionId": "ee399507-317d-41a8-ab94-d99f99738024"
 }
