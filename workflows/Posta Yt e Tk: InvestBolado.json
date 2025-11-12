@@ -102,8 +102,8 @@
       ]
     }
   },
-  "createdAt": "2025-11-10T15:37:11.375Z",
-  "id": "K8XPimFwcJ8EQHAw",
+  "createdAt": "2025-11-12T09:33:43.679Z",
+  "id": "tmWouFJgguzHuVSn",
   "isArchived": false,
   "meta": {
     "templateCredsSetupCompleted": true
@@ -127,16 +127,16 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -2112,
-        352
+        -1808,
+        368
       ],
-      "id": "ad6c2d33-601f-4770-8764-34a52503b3fe",
+      "id": "74700fa3-8464-4aa3-bf51-92429879bd0c",
       "name": "Search files and folders",
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -169,10 +169,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -688,
-        336
+        -384,
+        352
       ],
-      "id": "0529b1bf-a564-45b1-a8c7-2e6b24796c49",
+      "id": "3fe4871c-e84d-4885-b122-01ed65c33a63",
       "name": "Organiza o título e descrição"
     },
     {
@@ -197,10 +197,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2416,
-        352
+        -2112,
+        368
       ],
-      "id": "d77da002-026d-447f-a6fd-1a520d84b131",
+      "id": "f9200e11-0090-4946-b07f-707743b3716f",
       "name": "Schedule Trigger"
     },
     {
@@ -210,10 +210,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1440,
-        336
+        -1136,
+        352
       ],
-      "id": "e900e95c-ab2d-4c32-a3ee-e7ec6fef7b34",
+      "id": "509a06f8-d6c0-46e9-84ea-1f5b7cbce945",
       "name": "Gatilho de Agendamento"
     },
     {
@@ -229,15 +229,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        448,
-        320
+        752,
+        336
       ],
-      "id": "6b997f96-7877-499e-be45-5efb4c7afa9e",
+      "id": "19aa103b-ef33-45e2-8007-d32d6cfa60a9",
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -255,14 +255,14 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        48,
-        320
+        352,
+        336
       ],
-      "id": "02b09269-d491-4d20-9c63-3b0e67ac4a8e",
+      "id": "d513914c-b52a-4c2a-895f-1e8febaf96d4",
       "name": "Posta no Yotube",
       "credentials": {
         "youTubeOAuth2Api": {
-          "id": "aziGtFh3AcHkzFDL",
+          "id": "sWEK1NuWBI2e3R5H",
           "name": "InvestBolado"
         }
       }
@@ -280,15 +280,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -384,
-        336
+        -80,
+        352
       ],
-      "id": "4db3bf97-11f6-45b5-876c-87e20fe99550",
+      "id": "3c9929e2-a05c-4d97-9e18-f3e27c496d65",
       "name": "Faz Download do Vídeo",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -320,10 +320,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1808,
-        352
+        -1504,
+        368
       ],
-      "id": "110c7a03-cd74-4a53-87aa-5275c855a0d7",
+      "id": "898f3345-2ade-4487-b4de-1b2d42c08f15",
       "name": "If"
     },
     {
@@ -331,10 +331,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -1472,
-        528
+        -1168,
+        544
       ],
-      "id": "2313cc8f-e107-4a9c-b7bc-018edfcf9802",
+      "id": "9e0c479a-0f61-49cf-bd82-d696a4fc0ef8",
       "name": "No Operation, do nothing"
     },
     {
@@ -387,15 +387,15 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -304,
-        -16
+        0,
+        0
       ],
-      "id": "84390f67-0371-49f8-b88d-b6880aff688e",
+      "id": "c7953220-9f2b-4c7c-9940-65c740ca39cf",
       "name": "Append row in sheet",
       "credentials": {
         "googleSheetsOAuth2Api": {
-          "id": "VE0wOhsD3v5Kyh1j",
-          "name": "lucashrodrigues.contato1"
+          "id": "2zA5xm2J8G6YQave",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -419,14 +419,14 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -1136,
-        336
+        -832,
+        352
       ],
-      "id": "9c6a6f71-87e8-4103-8255-e7adab323510",
+      "id": "02c68fb3-6cf5-42f5-b78e-a88bfb99f19d",
       "name": "Criador de títulos",
       "credentials": {
         "openAiApi": {
-          "id": "hUeuyUw9Kcd7zMUh",
+          "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
       }
@@ -436,15 +436,16 @@
   "settings": {
     "executionOrder": "v1",
     "timezone": "America/Sao_Paulo",
-    "callerPolicy": "workflowsFromSameOwner"
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "shared": [
     {
-      "updatedAt": "2025-11-10T15:37:11.377Z",
-      "createdAt": "2025-11-10T15:37:11.377Z",
+      "updatedAt": "2025-11-12T09:33:43.681Z",
+      "createdAt": "2025-11-12T09:33:43.681Z",
       "role": "workflow:owner",
-      "workflowId": "K8XPimFwcJ8EQHAw",
-      "projectId": "bO4i25vlXKSokoz6"
+      "workflowId": "tmWouFJgguzHuVSn",
+      "projectId": "NmjiBPxycE3xYO0z"
     }
   ],
   "staticData": {
@@ -454,6 +455,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T17:18:34.000Z",
-  "versionId": "696178da-77da-4495-bba0-1c48fdf1c93c"
+  "updatedAt": "2025-11-12T11:01:22.000Z",
+  "versionId": "d66a844a-fe04-4939-93f8-f99bb8e8cfb1"
 }
