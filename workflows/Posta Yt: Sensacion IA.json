@@ -97,12 +97,10 @@
       ]
     }
   },
-  "createdAt": "2025-11-10T15:48:22.317Z",
-  "id": "S1crunrAIUraJ9EE",
+  "createdAt": "2025-11-12T09:41:10.828Z",
+  "id": "DPbThiF86QzUOEq6",
   "isArchived": false,
-  "meta": {
-    "templateCredsSetupCompleted": true
-  },
+  "meta": null,
   "name": "Posta Yt: Sensacion IA",
   "nodes": [
     {
@@ -122,16 +120,16 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -2048,
-        352
+        -1744,
+        368
       ],
-      "id": "513b18df-0777-4d45-9869-0ff6223eea17",
+      "id": "a610d5c3-6d38-4523-ba17-b7ac71ba8501",
       "name": "Search files and folders",
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -164,10 +162,10 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -688,
-        336
+        -384,
+        352
       ],
-      "id": "a0c844c0-b218-4d35-8c6b-1021251514ec",
+      "id": "7769cd01-4d4f-4978-9ffa-a3f0866898b7",
       "name": "Organiza o título e descrição"
     },
     {
@@ -196,10 +194,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
-        -2304,
-        352
+        -2000,
+        368
       ],
-      "id": "935f75bf-442b-4c68-9707-1bdb6958f193",
+      "id": "96a01c89-1424-47bf-a5f8-9e079158e463",
       "name": "Schedule Trigger"
     },
     {
@@ -209,10 +207,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        -1440,
-        336
+        -1136,
+        352
       ],
-      "id": "28d05fe5-d5f6-4d19-ac22-0b7a3a08a338",
+      "id": "98c17383-27cd-41c2-ada1-9465b0b4b344",
       "name": "Gatilho de Agendamento"
     },
     {
@@ -228,15 +226,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        464,
-        272
+        768,
+        288
       ],
-      "id": "9936aa07-4ad4-4180-b69b-87ee0cf3141a",
+      "id": "feef4012-a408-4bc5-b4bd-da66db735584",
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -254,14 +252,14 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        48,
-        320
+        352,
+        336
       ],
-      "id": "80e81c1f-8003-4470-a49a-2a8938d6f1b8",
+      "id": "72f6ebda-1acf-4bfd-89a5-8679b58bd207",
       "name": "Posta no Yotube",
       "credentials": {
         "youTubeOAuth2Api": {
-          "id": "m4dWoWXXQx0qBEnI",
+          "id": "NoM1GLG7CPUc2OGD",
           "name": "Sensacion IA"
         }
       }
@@ -279,15 +277,15 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        -384,
-        336
+        -80,
+        352
       ],
-      "id": "4faa1c83-d4e9-468e-a6f6-90efbaaecf79",
+      "id": "78165b13-044e-45da-a281-ebb40672e0db",
       "name": "Faz Download do Vídeo",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "GZzhvSb2OTh5Dcx2",
-          "name": "Lucashrodrigues.contato"
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
         }
       }
     },
@@ -319,10 +317,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -1840,
-        352
+        -1536,
+        368
       ],
-      "id": "efd5002e-6add-4f36-b5e0-5d13ad7b1714",
+      "id": "2a1a8108-03a9-4cb3-9e0d-c0068eb80859",
       "name": "If"
     },
     {
@@ -330,10 +328,10 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        -1472,
-        528
+        -1168,
+        544
       ],
-      "id": "1ba52649-5897-47dc-a2e1-0e2ca68b022e",
+      "id": "b38068f2-a115-4db5-9ead-a790b0e4e0fd",
       "name": "No Operation, do nothing"
     },
     {
@@ -386,17 +384,11 @@
       "type": "n8n-nodes-base.googleSheets",
       "typeVersion": 4.6,
       "position": [
-        -304,
-        -16
+        0,
+        0
       ],
-      "id": "edc578ad-b16e-446a-a3f9-9f2535a3b693",
+      "id": "b88d1500-d36e-4e62-8b41-e684080a96b0",
       "name": "Append row in sheet",
-      "credentials": {
-        "googleSheetsOAuth2Api": {
-          "id": "VE0wOhsD3v5Kyh1j",
-          "name": "lucashrodrigues.contato1"
-        }
-      },
       "disabled": true
     },
     {
@@ -419,14 +411,14 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        -1136,
-        336
+        -832,
+        352
       ],
-      "id": "135dd14b-b6a7-41e1-9c7c-cb811dd8280e",
+      "id": "e4ff261f-a674-4232-ad42-7732224f9aa4",
       "name": "Criador de títulos",
       "credentials": {
         "openAiApi": {
-          "id": "hUeuyUw9Kcd7zMUh",
+          "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
       }
@@ -434,15 +426,18 @@
   ],
   "pinData": {},
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "shared": [
     {
-      "updatedAt": "2025-11-10T15:48:22.319Z",
-      "createdAt": "2025-11-10T15:48:22.319Z",
+      "updatedAt": "2025-11-12T09:41:10.829Z",
+      "createdAt": "2025-11-12T09:41:10.829Z",
       "role": "workflow:owner",
-      "workflowId": "S1crunrAIUraJ9EE",
-      "projectId": "bO4i25vlXKSokoz6"
+      "workflowId": "DPbThiF86QzUOEq6",
+      "projectId": "NmjiBPxycE3xYO0z"
     }
   ],
   "staticData": {
@@ -452,6 +447,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-10T16:03:52.000Z",
-  "versionId": "e1cc99b7-8e42-476d-8f97-1ff19259ced2"
+  "updatedAt": "2025-11-12T10:55:45.000Z",
+  "versionId": "c91553eb-523c-4534-b8ae-3d503a0065e4"
 }
