@@ -138,13 +138,7 @@
     },
     "If": {
       "main": [
-        [
-          {
-            "node": "Filtra Os Dados",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "DateTime": {
@@ -169,9 +163,9 @@
         ],
         [
           {
-            "node": "Junta mensagem",
+            "node": "MensagemDeTexto",
             "type": "main",
-            "index": 1
+            "index": 0
           }
         ],
         [
@@ -243,17 +237,6 @@
         [
           {
             "node": "Aguarda 1 segundo",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "RecebeMensagem": {
-      "main": [
-        [
-          {
-            "node": "Edit Fields",
             "type": "main",
             "index": 0
           }
@@ -382,53 +365,24 @@
         ]
       ]
     },
-    "Edit Fields": {
+    "RecebeMensagem": {
       "main": [
         [
           {
-            "node": "Get many rows",
+            "node": "Filtra Os Dados",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Get many rows": {
+    "MensagemDeTexto": {
       "main": [
         [
           {
-            "node": "If1",
+            "node": "Junta mensagem",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "If1": {
-      "main": [
-        [
-          {
-            "node": "Switch",
-            "type": "main",
-            "index": 0
-          }
-        ],
-        [
-          {
-            "node": "Create a row",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Create a row": {
-      "main": [
-        [
-          {
-            "node": "Get many rows",
-            "type": "main",
-            "index": 0
+            "index": 1
           }
         ]
       ]
@@ -493,14 +447,13 @@
         464
       ],
       "id": "3379ca1e-ea6d-47bd-8241-fe287d68cdb6",
-      "name": "Filtra Os Dados",
-      "disabled": true
+      "name": "Filtra Os Dados"
     },
     {
       "parameters": {
         "operation": "create",
-        "databaseId": 194047,
-        "tableId": 469826,
+        "databaseId": 115,
+        "tableId": 754,
         "fieldsUi": {
           "fieldValues": [
             {
@@ -535,19 +488,18 @@
           "id": "ksLvXKXPDRDLuvfA",
           "name": "Baserow account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
-        "databaseId": 194047,
-        "tableId": 469826,
+        "databaseId": 115,
+        "tableId": 754,
         "returnAll": true,
         "additionalOptions": {
           "filters": {
             "fields": [
               {
-                "field": 3664461,
+                "field": 7267,
                 "value": "={{ $json.cliente['Número'] }}"
               }
             ]
@@ -568,8 +520,7 @@
           "id": "ksLvXKXPDRDLuvfA",
           "name": "Baserow account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -613,8 +564,7 @@
         368
       ],
       "id": "9d5d6aba-43f1-42fd-b6aa-85105af294ef",
-      "name": "ClienteExiste?",
-      "disabled": true
+      "name": "ClienteExiste?"
     },
     {
       "parameters": {
@@ -636,13 +586,12 @@
           "id": "oWLdFQm39MXg9Q27",
           "name": "Redis account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
         "operation": "push",
-        "list": "={{ $('Filtra Os Dados').item.json.cliente['Número'] }}",
+        "list": "={{ $('Filtra Os Dados').first().json.cliente['Número'] }}",
         "messageData": "={{ $json.values() }}"
       },
       "type": "n8n-nodes-base.redis",
@@ -658,8 +607,7 @@
           "id": "oWLdFQm39MXg9Q27",
           "name": "Redis account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -674,7 +622,7 @@
             {
               "id": "69ae624a-c135-4d58-b36c-94a66271b12d",
               "leftValue": "={{ $json.Mensagem.length }}",
-              "rightValue": 1,
+              "rightValue": 5,
               "operator": {
                 "type": "number",
                 "operation": "gt"
@@ -692,8 +640,7 @@
         1232
       ],
       "id": "14bf1741-0975-495e-bfa8-ce0064647442",
-      "name": "VerificaSeÉMaiorQue1",
-      "disabled": true
+      "name": "VerificaSeÉMaiorQue1"
     },
     {
       "parameters": {
@@ -715,8 +662,7 @@
           "id": "oWLdFQm39MXg9Q27",
           "name": "Redis account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -736,8 +682,7 @@
           "id": "oWLdFQm39MXg9Q27",
           "name": "Redis account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -760,8 +705,7 @@
         1408
       ],
       "id": "d7ba2dba-659e-4763-9bf8-fe628b604292",
-      "name": "OrganizaMensagem",
-      "disabled": true
+      "name": "OrganizaMensagem"
     },
     {
       "parameters": {
@@ -781,8 +725,7 @@
           "id": "oWLdFQm39MXg9Q27",
           "name": "Redis account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -807,8 +750,7 @@
           "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -838,12 +780,11 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -624,
-        608
+        -672,
+        624
       ],
       "id": "f7559940-5118-4ed2-860d-4b49af2e3cc4",
-      "name": "If",
-      "disabled": true
+      "name": "If"
     },
     {
       "parameters": {
@@ -860,8 +801,7 @@
         1392
       ],
       "id": "d54006d9-e2cf-4428-954a-7b523ae77e61",
-      "name": "DateTime",
-      "disabled": true
+      "name": "DateTime"
     },
     {
       "parameters": {
@@ -952,8 +892,7 @@
         512
       ],
       "id": "f553e20f-c2ad-4b79-b06a-9a21de02666c",
-      "name": "Verifica se é Image, Texto ou Áudio",
-      "disabled": true
+      "name": "Verifica se é Image, Texto ou Áudio"
     },
     {
       "parameters": {
@@ -969,8 +908,7 @@
       ],
       "typeVersion": 1,
       "id": "8f5cbb4b-10d6-4d61-9932-903b07635b8b",
-      "name": "Sticky Note1",
-      "disabled": true
+      "name": "Sticky Note1"
     },
     {
       "parameters": {
@@ -986,8 +924,7 @@
       ],
       "typeVersion": 1,
       "id": "576afa8e-136b-4850-8cc1-0fa2161814d8",
-      "name": "Sticky Note2",
-      "disabled": true
+      "name": "Sticky Note2"
     },
     {
       "parameters": {
@@ -1003,8 +940,7 @@
       ],
       "typeVersion": 1,
       "id": "b6ef586b-201d-40c1-85d2-a1403c3700d0",
-      "name": "Sticky Note3",
-      "disabled": true
+      "name": "Sticky Note3"
     },
     {
       "parameters": {
@@ -1020,8 +956,7 @@
       ],
       "typeVersion": 1,
       "id": "8c618c51-d0fc-4c85-afe5-ac749e385d07",
-      "name": "Sticky Note4",
-      "disabled": true
+      "name": "Sticky Note4"
     },
     {
       "parameters": {
@@ -1032,7 +967,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        1168,
+        1376,
         368
       ],
       "id": "ef798d61-9cb3-492c-a702-ef045f226ab5",
@@ -1042,8 +977,7 @@
           "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -1062,12 +996,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        704,
+        912,
         672
       ],
       "id": "d9e85922-6921-4580-bdfc-eedd0dc8b7f5",
-      "name": "Pega o base64 da imagem",
-      "disabled": true
+      "name": "Pega o base64 da imagem"
     },
     {
       "parameters": {
@@ -1078,12 +1011,11 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        864,
+        1072,
         672
       ],
       "id": "ad2c1cd4-fb56-41b2-a677-ae8d09ce5907",
-      "name": "Baixa a imagem",
-      "disabled": true
+      "name": "Baixa a imagem"
     },
     {
       "parameters": {
@@ -1102,7 +1034,7 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 1.8,
       "position": [
-        1040,
+        1248,
         672
       ],
       "id": "07924c9b-2e45-4743-ac29-acc00256d64d",
@@ -1112,8 +1044,7 @@
           "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
-      },
-      "disabled": true
+      }
     },
     {
       "parameters": {
@@ -1129,8 +1060,7 @@
       ],
       "typeVersion": 1,
       "id": "43fbec95-9117-4ca5-9c0b-3a16658bca87",
-      "name": "Sticky Note5",
-      "disabled": true
+      "name": "Sticky Note5"
     },
     {
       "parameters": {
@@ -1149,17 +1079,16 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        1584,
+        1792,
         1328
       ],
       "id": "427ba11d-c476-486b-9b6a-07545bc0abd0",
-      "name": "Prepara Mensagem",
-      "disabled": true
+      "name": "Prepara Mensagem"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution.outoflow.online/message/sendText/JonathanRenanWork",
+        "url": "https://evolution.lucashrodrigues.shop/message/sendText/lucasprincipal",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
@@ -1170,12 +1099,17 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        1792,
+        2000,
         1328
       ],
       "id": "d388a85d-9597-47c2-8855-1f94d8fda396",
       "name": "Responde Cliente",
-      "disabled": true
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "l2jFTpxlKdfCWz1t",
+          "name": "Evolution API"
+        }
+      }
     },
     {
       "parameters": {
@@ -1190,8 +1124,7 @@
       ],
       "typeVersion": 1,
       "id": "eef38b4d-cfc3-4ab4-8d08-75984afead98",
-      "name": "Sticky Note",
-      "disabled": true
+      "name": "Sticky Note"
     },
     {
       "parameters": {
@@ -1207,24 +1140,7 @@
       ],
       "typeVersion": 1,
       "id": "89339893-03d3-4c51-a091-38321b0e344e",
-      "name": "Sticky Note6",
-      "disabled": true
-    },
-    {
-      "parameters": {
-        "httpMethod": "POST",
-        "path": "59c90e7e-57e1-4dc8-af6a-7a6b750bffa1",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.webhook",
-      "typeVersion": 2,
-      "position": [
-        -1088,
-        2560
-      ],
-      "id": "49d3aa08-bc4f-42eb-9717-badef7ce517d",
-      "name": "RecebeMensagem",
-      "webhookId": "59c90e7e-57e1-4dc8-af6a-7a6b750bffa1"
+      "name": "Sticky Note6"
     },
     {
       "parameters": {
@@ -1240,8 +1156,7 @@
       ],
       "typeVersion": 1,
       "id": "1f270db7-9f28-4f6d-b4d1-84a353507dd2",
-      "name": "Sticky Note7",
-      "disabled": true
+      "name": "Sticky Note7"
     },
     {
       "parameters": {
@@ -1257,8 +1172,7 @@
       ],
       "typeVersion": 1,
       "id": "b99a1da1-a7d6-4510-b138-a6a7390b5164",
-      "name": "Sticky Note8",
-      "disabled": true
+      "name": "Sticky Note8"
     },
     {
       "parameters": {
@@ -1274,8 +1188,7 @@
       ],
       "typeVersion": 1,
       "id": "1cd8111a-e0b6-4d81-afce-16647f8c04e7",
-      "name": "Sticky Note9",
-      "disabled": true
+      "name": "Sticky Note9"
     },
     {
       "parameters": {
@@ -1291,8 +1204,7 @@
       ],
       "typeVersion": 1,
       "id": "db404d35-7d51-4758-ae93-2220ef927678",
-      "name": "Sticky Note10",
-      "disabled": true
+      "name": "Sticky Note10"
     },
     {
       "parameters": {},
@@ -1303,8 +1215,7 @@
         1024
       ],
       "id": "8dd77676-0513-49db-8255-cc4bdce48a31",
-      "name": "Não faz nada, já tem mensagem processando",
-      "disabled": true
+      "name": "Não faz nada, já tem mensagem processando"
     },
     {
       "parameters": {},
@@ -1316,8 +1227,7 @@
       ],
       "id": "090c636d-b1bb-4145-b496-b6d09c605a3a",
       "name": "Aguarda 13 segundos",
-      "webhookId": "0917c991-996a-428c-b7e9-2f046aec9e9f",
-      "disabled": true
+      "webhookId": "0917c991-996a-428c-b7e9-2f046aec9e9f"
     },
     {
       "parameters": {
@@ -1334,8 +1244,7 @@
         1152
       ],
       "id": "d4b80fdd-0dfa-4ca3-ac7a-dd49094ad478",
-      "name": "Agente de Atendimento",
-      "disabled": true
+      "name": "Agente de Atendimento"
     },
     {
       "parameters": {
@@ -1349,8 +1258,7 @@
         1440
       ],
       "id": "05ec00c6-2d91-4c1b-b514-cd39a7afae2e",
-      "name": "Memória do agente",
-      "disabled": true
+      "name": "Memória do agente"
     },
     {
       "parameters": {
@@ -1369,12 +1277,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        768,
+        976,
         1072
       ],
       "id": "b48252a3-e5b9-40a8-894e-b7f9c3f099bb",
-      "name": "Separa a mensagem em várias",
-      "disabled": true
+      "name": "Separa a mensagem em várias"
     },
     {
       "parameters": {
@@ -1384,12 +1291,11 @@
       "type": "n8n-nodes-base.splitOut",
       "typeVersion": 1,
       "position": [
-        1104,
+        1312,
         1072
       ],
       "id": "0134df9d-98e8-4d25-8d64-8a0e92abe902",
-      "name": "Quebra a mensagem em várias mensagens",
-      "disabled": true
+      "name": "Quebra a mensagem em várias mensagens"
     },
     {
       "parameters": {
@@ -1398,12 +1304,11 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1568,
+        1776,
         1088
       ],
       "id": "a04820c6-e2df-47c3-b526-ef6dd0468ae1",
-      "name": "Separa 1 mensagem para enviar",
-      "disabled": true
+      "name": "Separa 1 mensagem para enviar"
     },
     {
       "parameters": {},
@@ -1411,11 +1316,10 @@
       "name": "Repete",
       "typeVersion": 1,
       "position": [
-        2000,
+        2208,
         1360
       ],
-      "id": "f2ec1b3e-6193-446b-9e1b-4404e9815ef0",
-      "disabled": true
+      "id": "f2ec1b3e-6193-446b-9e1b-4404e9815ef0"
     },
     {
       "parameters": {
@@ -1424,13 +1328,12 @@
       "type": "n8n-nodes-base.wait",
       "typeVersion": 1.1,
       "position": [
-        2000,
+        2208,
         1120
       ],
       "id": "f73c6044-5861-4382-8baa-fd1d564ecf02",
       "name": "Aguarda 1 segundo",
-      "webhookId": "cdea2655-5b47-4805-9710-b97df84ae05c",
-      "disabled": true
+      "webhookId": "cdea2655-5b47-4805-9710-b97df84ae05c"
     },
     {
       "parameters": {
@@ -1439,33 +1342,37 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3,
       "position": [
-        1344,
-        672
+        1552,
+        576
       ],
       "id": "e0e78fb5-49a3-4c95-b57d-669eface8109",
-      "name": "Junta mensagem",
-      "disabled": true
+      "name": "Junta mensagem"
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "https://evolution.outoflow.online/chat/getBase64FromMediaMessage/JonathanRenanIA",
+        "url": "https://evolution.lucashrodrigues.shop/chat/getBase64FromMediaMessage/lucasprincipal",
         "authentication": "genericCredentialType",
         "genericAuthType": "httpHeaderAuth",
         "sendBody": true,
         "specifyBody": "json",
-        "jsonBody": "={\n  \"message\": {\n    \"key\": {\n      \"id\": \"{{ $('Recebe Mensagem').item.json.body.data.key.id }}\"\n    }\n  },\n  \"convertToMp4\": false\n}",
+        "jsonBody": "={\n  \"message\": {\n    \"key\": {\n      \"id\": \"{{ $('RecebeMensagem').item.json.body.data.key.id }}\"\n    }\n  },\n  \"convertToMp4\": false\n}",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.2,
       "position": [
-        688,
+        896,
         352
       ],
       "id": "232a1a6e-0fbb-4824-951f-dadf7959a781",
       "name": "HTTP Request",
-      "disabled": true
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "l2jFTpxlKdfCWz1t",
+          "name": "Evolution API"
+        }
+      }
     },
     {
       "parameters": {
@@ -1478,57 +1385,36 @@
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
       "position": [
-        928,
+        1136,
         352
       ],
       "id": "99a746d4-05df-4f22-8ae5-3eecfceb8e79",
-      "name": "Convert to File",
-      "disabled": true
+      "name": "Convert to File"
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "59c90e7e-57e1-4dc8-af6a-7a6b750bffa1",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        -784,
+        448
+      ],
+      "id": "49d3aa08-bc4f-42eb-9717-badef7ce517d",
+      "name": "RecebeMensagem",
+      "webhookId": "59c90e7e-57e1-4dc8-af6a-7a6b750bffa1"
     },
     {
       "parameters": {
         "assignments": {
           "assignments": [
             {
-              "id": "8d097b58-898d-4058-b552-869015e77ff9",
-              "name": "cliente.NomeDoCliente",
-              "value": "={{ $item(\"0\").$node[\"RecebeMensagem\"].json[\"body\"][\"data\"][\"pushName\"] }}",
-              "type": "string"
-            },
-            {
-              "id": "80d43e75-ef36-4071-a0f7-ab8a565e4e4e",
-              "name": "cliente.Numero",
-              "value": "={{ $item(\"0\").$node[\"RecebeMensagem\"].json[\"body\"][\"sender\"] }}",
-              "type": "string"
-            },
-            {
-              "id": "c0b3a23e-ec45-4bcf-9b37-745a02bf7c7b",
-              "name": "wpp.Mensagem",
-              "value": "={{ $item(\"0\").$node[\"RecebeMensagem\"].json[\"body\"][\"data\"][\"message\"][\"conversation\"] }}",
-              "type": "string"
-            },
-            {
-              "id": "59203837-765d-4c66-9c66-b68e6ccab430",
-              "name": "wpp.TipoDeMensagem",
-              "value": "={{ $item(\"0\").$node[\"RecebeMensagem\"].json[\"body\"][\"data\"][\"messageType\"] }}",
-              "type": "string"
-            },
-            {
-              "id": "f6567cca-db05-43c3-8afd-8bad3112debd",
-              "name": "cliente.Data",
-              "value": "={{ $json.body.date_time.toDateTime().format('dd/MM/yyyy') }}",
-              "type": "string"
-            },
-            {
-              "id": "39431191-beee-47e6-9758-3d8012d822eb",
-              "name": "cliente.UltimaMensagem",
-              "value": "={{ $item(\"0\").$node[\"RecebeMensagem\"].json[\"body\"][\"data\"][\"key\"][\"fromMe\"] }}",
-              "type": "boolean"
-            },
-            {
-              "id": "09fce2ed-f2f9-4d8f-bf3b-b44388b9467c",
-              "name": "cliente.TipoMensagem",
-              "value": "={{ $json.body.data.messageType }}",
+              "id": "4567766f-4203-4d88-b839-c75eeb4c2b71",
+              "name": "Mensagem",
+              "value": "={{ $item(\"0\").$node[\"Filtra Os Dados\"].json[\"wpp\"][\"Mensagem\"] }}",
               "type": "string"
             }
           ]
@@ -1538,205 +1424,11 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        -880,
-        2560
+        784,
+        528
       ],
-      "id": "3a4f460f-2e72-476f-a12a-daa329d71ace",
-      "name": "Edit Fields"
-    },
-    {
-      "parameters": {
-        "databaseId": 115,
-        "tableId": 754,
-        "returnAll": true,
-        "additionalOptions": {
-          "filters": {
-            "fields": [
-              {
-                "field": 7267,
-                "value": "={{ $item(\"0\").$node[\"Edit Fields\"].json[\"cliente\"][\"Numero\"] }}"
-              }
-            ]
-          }
-        }
-      },
-      "type": "n8n-nodes-base.baserow",
-      "typeVersion": 1,
-      "position": [
-        -672,
-        2560
-      ],
-      "id": "89d3b483-bab6-43c7-90a7-c65d70ac4e6f",
-      "name": "Get many rows",
-      "alwaysOutputData": true,
-      "credentials": {
-        "baserowApi": {
-          "id": "ksLvXKXPDRDLuvfA",
-          "name": "Baserow account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 2
-          },
-          "conditions": [
-            {
-              "id": "26167689-ca6b-4884-893a-338e5f48adac",
-              "leftValue": "={{ $json }}",
-              "rightValue": "",
-              "operator": {
-                "type": "object",
-                "operation": "notEmpty",
-                "singleValue": true
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.if",
-      "typeVersion": 2.2,
-      "position": [
-        -464,
-        2560
-      ],
-      "id": "92ae730f-3fa2-4dfa-8382-ba0eed6c1a3e",
-      "name": "If1"
-    },
-    {
-      "parameters": {
-        "operation": "create",
-        "databaseId": 115,
-        "tableId": 754,
-        "fieldsUi": {
-          "fieldValues": [
-            {
-              "fieldId": 7264,
-              "fieldValue": "={{ $('Edit Fields').item.json.cliente.NomeDoCliente }}"
-            },
-            {
-              "fieldId": 7267,
-              "fieldValue": "={{ $('Edit Fields').item.json.cliente.Numero }}"
-            },
-            {
-              "fieldId": 7269,
-              "fieldValue": "={{ $('Edit Fields').item.json.cliente.Data }}"
-            }
-          ]
-        }
-      },
-      "type": "n8n-nodes-base.baserow",
-      "typeVersion": 1,
-      "position": [
-        -256,
-        2656
-      ],
-      "id": "052a538e-aa27-469c-88d9-8a258c3aa205",
-      "name": "Create a row",
-      "credentials": {
-        "baserowApi": {
-          "id": "ksLvXKXPDRDLuvfA",
-          "name": "Baserow account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "rules": {
-          "values": [
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "leftValue": "={{ $('Edit Fields').item.json.wpp.TipoDeMensagem }}",
-                    "rightValue": "audioMessage",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals"
-                    },
-                    "id": "041b0da4-e16e-4038-86b3-72eb3734ccb8"
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Audio"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "0d44a202-79db-4f51-a656-b134d69efd0a",
-                    "leftValue": "={{ $('Edit Fields').item.json.wpp.TipoDeMensagem }}",
-                    "rightValue": "conversation",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Texto"
-            },
-            {
-              "conditions": {
-                "options": {
-                  "caseSensitive": true,
-                  "leftValue": "",
-                  "typeValidation": "strict",
-                  "version": 2
-                },
-                "conditions": [
-                  {
-                    "id": "4d307d12-0691-4cc0-a1d6-d9f4a26a8b16",
-                    "leftValue": "={{ $('Edit Fields').item.json.wpp.TipoDeMensagem }}",
-                    "rightValue": "imageMessage",
-                    "operator": {
-                      "type": "string",
-                      "operation": "equals",
-                      "name": "filter.operator.equals"
-                    }
-                  }
-                ],
-                "combinator": "and"
-              },
-              "renameOutput": true,
-              "outputKey": "Imagem"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.switch",
-      "typeVersion": 3.3,
-      "position": [
-        48,
-        2544
-      ],
-      "id": "20f05eb8-6aa2-4e83-88c8-c72be6cef7e9",
-      "name": "Switch"
+      "id": "456714be-36b3-4964-90fb-fe841dcde1b3",
+      "name": "MensagemDeTexto"
     }
   ],
   "pinData": {
@@ -1746,7 +1438,7 @@
           "headers": {
             "host": "webhook.lucashrodrigues.shop",
             "user-agent": "axios/1.10.0",
-            "content-length": "865",
+            "content-length": "866",
             "accept": "application/json, text/plain, */*",
             "accept-encoding": "gzip, compress, deflate, br",
             "content-type": "application/json",
@@ -1766,12 +1458,12 @@
               "key": {
                 "remoteJid": "554384866569@s.whatsapp.net",
                 "fromMe": true,
-                "id": "2A8FBD99F1D7EDAC0126"
+                "id": "3EB0ECD4E833F60381549A"
               },
               "pushName": "Lucas Rodrigues Vale Multi Clean",
               "status": "SERVER_ACK",
               "message": {
-                "conversation": "Olá"
+                "conversation": "wadwada"
               },
               "contextInfo": {
                 "expiration": 7776000,
@@ -1783,12 +1475,12 @@
                 }
               },
               "messageType": "conversation",
-              "messageTimestamp": 1762982586,
+              "messageTimestamp": 1763032957,
               "instanceId": "c73fbf76-e178-4199-90d8-221c6f6cb9b8",
-              "source": "unknown"
+              "source": "web"
             },
             "destination": "https://webhook.lucashrodrigues.shop/webhook-test/59c90e7e-57e1-4dc8-af6a-7a6b750bffa1",
-            "date_time": "2025-11-12T18:23:06.787Z",
+            "date_time": "2025-11-13T08:22:37.787Z",
             "sender": "554384866569@s.whatsapp.net",
             "server_url": "https://n8nprojetos-evolution-api.5cd0qc.easypanel.host",
             "apikey": "1393127AA134-46C7-A602-BA139D66ADF4"
@@ -1800,7 +1492,10 @@
     ]
   },
   "settings": {
-    "executionOrder": "v1"
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
   },
   "shared": [
     {
@@ -1821,6 +1516,6 @@
     }
   ],
   "triggerCount": 0,
-  "updatedAt": "2025-11-12T22:55:19.000Z",
-  "versionId": "24d6e0e8-f469-4cc0-96dd-011edd1052e0"
+  "updatedAt": "2025-11-13T11:28:03.000Z",
+  "versionId": "33a78b61-c7b2-40df-bc9c-79de4d7a86f8"
 }
