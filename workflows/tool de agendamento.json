@@ -1,0 +1,28 @@
+{
+  "active": false,
+  "connections": {},
+  "createdAt": "2025-11-13T13:23:13.967Z",
+  "id": "GNINYzFKdPgHQNFI",
+  "isArchived": true,
+  "meta": null,
+  "name": "tool de agendamento",
+  "nodes": [],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-13T13:23:13.973Z",
+      "createdAt": "2025-11-13T13:23:13.973Z",
+      "role": "workflow:owner",
+      "workflowId": "GNINYzFKdPgHQNFI",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-13T13:25:19.000Z",
+  "versionId": "fb871769-3722-4955-aa6a-aa7495bcc4ca"
+}
