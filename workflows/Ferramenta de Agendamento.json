@@ -1,0 +1,948 @@
+{
+  "active": false,
+  "connections": {
+    "If6": {
+      "main": [
+        [
+          {
+            "node": "Verifica evento1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifica evento1": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifica evento": {
+      "main": [
+        [
+          {
+            "node": "Google Calendar1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marca": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Disponibilidade": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If3": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Disponibilidade",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Marca",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Disponibilidade1": {
+      "main": [
+        [
+          {
+            "node": "If6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Consulta se já tem evento": {
+      "main": [
+        [
+          {
+            "node": "If3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch1": {
+      "main": [
+        [
+          {
+            "node": "Consulta se já tem evento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Disponibilidade1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Verifica evento",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Switch1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-13T13:46:35.100Z",
+  "id": "ckk9bEZlLHO8xtpk",
+  "isArchived": false,
+  "meta": null,
+  "name": "Ferramenta de Agendamento",
+  "nodes": [
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "04c6ca35-7572-4699-bcb7-bbf2f2a6e6a4",
+              "name": "response",
+              "value": "horário não disponivel, peça outro horário",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a624ef1d-10d4-4b22-9ad1-593b2d77a197",
+      "name": "Edit Fields5",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1008,
+        976
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "be5649a9-7624-4621-bd2d-84c25577c0ce",
+              "leftValue": "={{ $json.available }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "a33127e8-9f5e-47a5-9211-a166abe1d18f",
+      "name": "If6",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        784,
+        736
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "returnAll": true,
+        "options": {
+          "query": "={{ $item(\"0\").$node[\"Switch1\"].json[\"query\"][\"email\"] }}"
+        }
+      },
+      "id": "f802feb4-ca72-4087-b88f-9728a7963ae1",
+      "name": "Verifica evento1",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        1088,
+        720
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "returnAll": true,
+        "options": {
+          "query": "={{ $item(\"0\").$node[\"Switch1\"].json[\"query\"][\"email\"] }}"
+        }
+      },
+      "id": "1fda1bb5-5e9b-4c42-86e0-7b300c816635",
+      "name": "Verifica evento",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        624,
+        1456
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7f842ffa-cd8f-40ab-a0a7-40dc173357a7",
+              "name": "response",
+              "value": "Que a reunião foi reagendada",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ab523542-1088-4d76-91f1-3673a8d04685",
+      "name": "Edit Fields4",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1712,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "eventId": "={{ $item(\"0\").$node[\"Verifica evento1\"].json[\"id\"] }}",
+        "useDefaultReminders": false,
+        "updateFields": {
+          "end": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"query\"][\"end\"] }}",
+          "sendUpdates": "all",
+          "start": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"query\"][\"start\"] }}"
+        }
+      },
+      "id": "e60f2da5-e8ac-4758-a29d-6bfba7e21057",
+      "name": "Google Calendar3",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        1392,
+        720
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7f842ffa-cd8f-40ab-a0a7-40dc173357a7",
+              "name": "response",
+              "value": "Informe o usuário que o agendamento foi cancelado e que estará sempre à disposição para um novo agendamento.",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d93ef9bc-4801-4305-8d70-b2aceaa3a5c1",
+      "name": "Edit Fields3",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1280,
+        1456
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "eventId": "={{ $item(\"0\").$node[\"Verifica evento\"].json[\"id\"] }}",
+        "options": {}
+      },
+      "id": "3539956d-020f-46c8-9505-b6dbfaa98374",
+      "name": "Google Calendar1",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        928,
+        1456
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "start": "={{ $('Switch1').item.json.query.start }}",
+        "end": "={{ $('Switch1').item.json.query.end }}",
+        "additionalFields": {
+          "attendees": [
+            "={{ $('Switch1').item.json.query.email }}"
+          ],
+          "description": "={{ $('Switch1').item.json.Remotejid }}",
+          "summary": "={{ $('Execute Workflow Trigger').item.json.query.nome }}"
+        }
+      },
+      "id": "516a7cbd-f50b-40fa-8d99-8e000e0c02bf",
+      "name": "Marca",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        1872,
+        16
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "timeMin": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"query\"][\"start\"] }}",
+        "timeMax": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"query\"][\"end\"] }}",
+        "options": {}
+      },
+      "id": "4939de07-505b-4300-8395-5e79f06de6ad",
+      "name": "Disponibilidade",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        1168,
+        48
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "8d192ed0-aebd-404e-8339-daab0d29651f",
+              "leftValue": "={{ $json.attendees?.[0]?.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e3c1b514-d2a5-4da5-b392-a00588483ddb",
+      "name": "If3",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        784,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "edc090f3-5297-46f6-badf-11b0535a8a30",
+              "name": "response",
+              "value": "=Já possui uma reunião:\n\nInicio: {{ $item(\"0\").$node[\"If3\"].json[\"start\"][\"dateTime\"] }}\nFim: {{ $item(\"0\").$node[\"If3\"].json[\"end\"][\"dateTime\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "46cb8674-03ed-4fbc-adb9-125c0337b9ad",
+      "name": "Edit Fields2",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1024,
+        -112
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "04c6ca35-7572-4699-bcb7-bbf2f2a6e6a4",
+              "name": "response",
+              "value": "horário não disponivel, peça outro horário",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "396e9efc-f67d-4b76-977c-99ecd003935a",
+      "name": "Edit Fields1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1648,
+        288
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "be5649a9-7624-4621-bd2d-84c25577c0ce",
+              "leftValue": "={{ $json.available }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "e95c5f78-dcd9-4d7a-9d69-0cdb07db628a",
+      "name": "If1",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1440,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "86ff282a-3ede-4417-98c1-0d10858bc5dc",
+              "name": "response",
+              "value": "Agendamento concluído",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "5a64079d-be7b-45c7-a00a-13938bfa262d",
+      "name": "Edit Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2144,
+        16
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# AGENDAMENTO",
+        "height": 614,
+        "width": 2064,
+        "color": 6
+      },
+      "id": "03bf4c26-1309-420c-a78a-423e03e16fd7",
+      "name": "Sticky Note11",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        -96
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### RESPOSTA AO AGENTE 1",
+        "height": 260,
+        "width": 300,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        448,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "b4ac60d4-4a07-4a82-9cc5-1270f3bf589a",
+      "name": "Sticky Note26"
+    },
+    {
+      "parameters": {
+        "content": "### RESPOSTA AO AGENTE 2",
+        "height": 260,
+        "width": 320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1136,
+        208
+      ],
+      "typeVersion": 1,
+      "id": "f902b34d-7dde-46ae-a784-c5cc3373a276",
+      "name": "Sticky Note27"
+    },
+    {
+      "parameters": {
+        "content": "### RESPOSTA AO AGENTE 3",
+        "height": 260,
+        "width": 280,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1648,
+        -64
+      ],
+      "typeVersion": 1,
+      "id": "c45e5793-e3ff-4214-a4a2-cee57525f240",
+      "name": "Sticky Note28"
+    },
+    {
+      "parameters": {
+        "content": "# REAGENDAMENTO",
+        "height": 634,
+        "width": 1624,
+        "color": 5
+      },
+      "id": "c69b896b-194c-4a71-9a04-94f4aacceda3",
+      "name": "Sticky Note12",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        576
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### RESPOSTA AO AGENTE 1",
+        "height": 260,
+        "width": 300,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        496,
+        896
+      ],
+      "typeVersion": 1,
+      "id": "9a1c3ca7-5323-4231-98bc-2e6224f4f797",
+      "name": "Sticky Note29"
+    },
+    {
+      "parameters": {
+        "content": "### RESPOSTA AO AGENTE 2",
+        "height": 260,
+        "width": 320,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        1184,
+        640
+      ],
+      "typeVersion": 1,
+      "id": "520c1d75-6b0d-4fe1-99d6-2d478751522f",
+      "name": "Sticky Note30"
+    },
+    {
+      "parameters": {
+        "content": "# CANCELAMENTO",
+        "height": 414,
+        "width": 1204,
+        "color": 3
+      },
+      "id": "9b07065d-1548-4d9c-b377-fcf03b53b151",
+      "name": "Sticky Note13",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -32,
+        1296
+      ]
+    },
+    {
+      "parameters": {
+        "content": "### RESPOSTA AO AGENTE ",
+        "height": 260,
+        "width": 300,
+        "color": 4
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        768,
+        1376
+      ],
+      "typeVersion": 1,
+      "id": "fc66014f-3a69-4376-8d95-4189a492a5a4",
+      "name": "Sticky Note31"
+    },
+    {
+      "parameters": {
+        "content": "# ATIVAÇÃO DA TOOL PELO AGENTE + FILTRO EVENTO",
+        "height": 514,
+        "width": 724,
+        "color": 4
+      },
+      "id": "1b34684c-417f-46ed-9b33-769b45dde449",
+      "name": "Sticky Note14",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        -928,
+        496
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "calendar",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "timeMin": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"query\"][\"start\"] }}",
+        "timeMax": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"query\"][\"end\"] }}",
+        "options": {}
+      },
+      "id": "2a901bed-9b0b-45e3-a40a-25c68457fb38",
+      "name": "Disponibilidade1",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        736
+      ],
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "calendar": {
+          "__rl": true,
+          "value": "lucasrodrigues.contato1@gmail.com",
+          "mode": "list",
+          "cachedResultName": "lucasrodrigues.contato1@gmail.com"
+        },
+        "returnAll": true,
+        "options": {
+          "query": "={{ $json.query.email }}"
+        }
+      },
+      "id": "bb43456c-6dfd-4b04-8e22-cebe467bc6cf",
+      "name": "Consulta se já tem evento",
+      "type": "n8n-nodes-base.googleCalendar",
+      "typeVersion": 1.1,
+      "position": [
+        560,
+        16
+      ],
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "EJxW3xzbGJiecm04",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"Evento\"] }}",
+                    "rightValue": "agendamento",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    },
+                    "id": "a3cab2ad-7480-4ba7-ac09-420209134e25"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "agendamento"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "d788021f-29ab-41f2-b355-2b18963d30f2",
+                    "leftValue": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"Evento\"] }}",
+                    "rightValue": "reagendamento",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "reagendamento"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "7a57e8e8-5227-4cde-8d58-7b447cd55a17",
+                    "leftValue": "={{ $item(\"0\").$node[\"Execute Workflow Trigger\"].json[\"Evento\"] }}",
+                    "rightValue": "cancelamento",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals",
+                      "name": "filter.operator.equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "cancelamento"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "d3018121-eb5a-484b-9e7c-9744e217e08c",
+      "name": "Switch1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -192,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "inputSource": "passthrough"
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -496,
+        736
+      ],
+      "id": "87a48a41-6a27-450f-be28-2fca3aad69c7",
+      "name": "When Executed by Another Workflow"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-13T13:46:35.104Z",
+      "createdAt": "2025-11-13T13:46:35.104Z",
+      "role": "workflow:owner",
+      "workflowId": "ckk9bEZlLHO8xtpk",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-13T14:30:46.000Z",
+  "versionId": "2c923de7-ecbe-4a1b-b527-19e01d3ce974"
+}
