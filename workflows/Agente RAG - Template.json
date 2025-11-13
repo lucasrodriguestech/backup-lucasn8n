@@ -1,0 +1,1686 @@
+{
+  "active": false,
+  "connections": {
+    "Supabase2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Monta Informações",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI2": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Insere Dado Vecto Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Default Data Loader2": {
+      "ai_document": [
+        [
+          {
+            "node": "Insere Dado Vecto Store",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Character Text Splitter2": {
+      "ai_textSplitter": [
+        [
+          {
+            "node": "Default Data Loader2",
+            "type": "ai_textSplitter",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Shopify": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          {
+            "node": "Supabase3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "Code",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If2": {
+      "main": [
+        [
+          {
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Supabase4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase3": {
+      "main": [
+        [
+          {
+            "node": "If2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items3": {
+      "main": [
+        [],
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase4": {
+      "main": [
+        [
+          {
+            "node": "Replace Me3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI3": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Atualiza Vector Store",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI4": {
+      "ai_embedding": [
+        [
+          {
+            "node": "consulta_produtos",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_produtos": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Monta FAQ": {
+      "main": [
+        [
+          {
+            "node": "Monta_Info",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Monta Informações": {
+      "main": [
+        [
+          {
+            "node": "Monta FAQ",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Monta_Info": {
+      "main": [
+        [
+          {
+            "node": "busca_produto_base",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "busca_produto_base": {
+      "main": [
+        [
+          {
+            "node": "verifica se já existe produto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verifica se já existe produto": {
+      "main": [
+        [
+          {
+            "node": "pega_qea",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "pega_qea_atualiza_prod",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pega_qea": {
+      "main": [
+        [
+          {
+            "node": "Insere Dado Vecto Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insere Dado Vecto Store": {
+      "main": [
+        [
+          {
+            "node": "Supabase6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "pega_qea_atualiza_prod": {
+      "main": [
+        [
+          {
+            "node": "Atualiza Vector Store",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Atualiza Vector Store": {
+      "main": [
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase5": {
+      "main": [
+        [
+          {
+            "node": "Replace Me2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase6": {
+      "main": [
+        [
+          {
+            "node": "Filter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter": {
+      "main": [
+        [
+          {
+            "node": "Supabase5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "consulta_preco_url": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Shopify1": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase7": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter1": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Supabase": {
+      "main": [
+        [
+          {
+            "node": "Supabase1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Roda todo dia 01:00": {
+      "main": [
+        [
+          {
+            "node": "Shopify",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Roda 1x semana 02:00": {
+      "main": [
+        [
+          {
+            "node": "Supabase2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Roda 1x semana 00:00": {
+      "main": [
+        [
+          {
+            "node": "Shopify1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Supabase7",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Embeddings OpenAI1": {
+      "ai_embedding": [
+        [
+          {
+            "node": "info_empresa",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "info_empresa": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-13T13:37:57.536Z",
+  "id": "g4Oy9nDCbl9q32NO",
+  "isArchived": false,
+  "meta": null,
+  "name": "Agente RAG - Template",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "produtos_pincbar",
+        "returnAll": true
+      },
+      "id": "f3f81766-7a64-4f36-9bfd-2905c14645be",
+      "name": "Supabase2",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        400,
+        704
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "4888da18-a833-4da4-84f2-4ce0f28648f8",
+      "name": "Loop Over Items2",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        624,
+        704
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "4bb566cf-d5dd-4762-8ff5-6a051ae80365",
+      "name": "Replace Me2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2832,
+        1664
+      ]
+    },
+    {
+      "parameters": {
+        "model": "text-embedding-3-small",
+        "options": {}
+      },
+      "id": "f94f5b8a-d1c4-44cf-93c8-c9f4f3eb762c",
+      "name": "Embeddings OpenAI2",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1,
+      "position": [
+        1584,
+        1232
+      ]
+    },
+    {
+      "parameters": {
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "=id_produto",
+                "value": "={{ $('Monta_Info').item.json.id }}"
+              },
+              {
+                "name": "=titulo_produto",
+                "value": "={{ $('Monta_Info').item.json.titulo_produto }}"
+              },
+              {
+                "name": "status_produto",
+                "value": "={{ $('Monta_Info').item.json.status_produto }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "c0568f41-409d-4b20-a286-fc8863bf5841",
+      "name": "Default Data Loader2",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1,
+      "position": [
+        1824,
+        1200
+      ]
+    },
+    {
+      "parameters": {
+        "chunkSize": 8000
+      },
+      "id": "5ae32384-7cc1-44b8-a0b1-63eba70d9975",
+      "name": "Character Text Splitter2",
+      "type": "@n8n/n8n-nodes-langchain.textSplitterCharacterTextSplitter",
+      "typeVersion": 1,
+      "position": [
+        1792,
+        1344
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# MONTA FAQ\n",
+        "height": 1382,
+        "width": 3058
+      },
+      "id": "58fb93b2-fb86-4e6e-812d-cf1fb38e8eed",
+      "name": "Sticky Note2",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        592
+      ]
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "product",
+        "operation": "getAll",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "id": "a6400a10-3290-4d57-ad95-f0794572af60",
+      "name": "Shopify",
+      "type": "n8n-nodes-base.shopify",
+      "typeVersion": 1,
+      "position": [
+        384,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "34a2d18f-889c-4a25-b177-313a72fde586",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "active",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "fb4aee7d-8bcf-47e4-9186-4b1f014fd798",
+      "name": "If",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        624,
+        128
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Função para remover tags HTML\nfunction removeHtmlTags(input) {\n    if (!input || typeof input !== 'string') {\n        return input;\n    }\n\n    // Remove todas as tags HTML\n    let cleanedText = input.replace(/<[^>]*>/g, '');\n\n    // Remove espaços extras e novas linhas duplicadas\n    cleanedText = cleanedText.replace(/\\s+/g, ' ').trim();\n\n    return cleanedText;\n}\n\n// Obter o texto do campo body_html\nconst htmlInput = $json[\"body_html\"]; // Substitua pelo caminho correto se necessário\nif (!htmlInput) {\n    throw new Error(\"O campo body_html não foi encontrado.\");\n}\n\n// Processar o texto\nconst cleanedText = removeHtmlTags(htmlInput);\n\n// Retornar o resultado como objeto compatível com o n8n\nreturn {\n    cleaned_body: cleanedText // O texto limpo será retornado no campo \"cleaned_body\"\n};"
+      },
+      "id": "2286c910-ff7c-4ee3-af4f-ea7227a75b6c",
+      "name": "Code",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1712,
+        48
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "b70e9668-227e-48a1-9597-8e44d44d4cf1",
+              "leftValue": "={{ $json.body_html }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "017efd28-3d82-4db6-a8f8-87d08039a745",
+              "leftValue": "={{ $json.body_html }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1328,
+        128
+      ],
+      "id": "47ea4642-6252-465a-9404-42c1eb225e57",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "292ac560-1532-4e18-ad30-9ab750d78ee2",
+              "leftValue": "={{ $json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "notEmpty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2192,
+        48
+      ],
+      "id": "02288ac6-1d94-43a6-b081-8e3f3ca53c3f",
+      "name": "If2"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "produtos_pincbar",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "={{ $('Shopify').item.json.id }}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "id",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.id }}"
+            },
+            {
+              "fieldId": "titulo_produto",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.title }}"
+            },
+            {
+              "fieldId": "descricao_produto",
+              "fieldValue": "={{ $json.cleaned_body }}"
+            },
+            {
+              "fieldId": "data_criacao",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.created_at }}"
+            },
+            {
+              "fieldId": "url_do_produto",
+              "fieldValue": "=https://pincbar.com.br/products/{{ $node['Loop Over Items3'].json.handle }}"
+            },
+            {
+              "fieldId": "status_produto",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.status }}"
+            },
+            {
+              "fieldId": "data_ultima_atualizacao",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.updated_at }}"
+            },
+            {
+              "fieldId": "preco_produto",
+              "fieldValue": "=R$ {{ $node['Loop Over Items3'].json.variants[0].price.replaceAll('.',',') }}"
+            },
+            {
+              "fieldId": "url_imagem_01",
+              "fieldValue": "="
+            },
+            {
+              "fieldId": "tipo_produto",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.product_type }}"
+            },
+            {
+              "fieldId": "estoque_atual",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.variants[0].inventory_quantity }}"
+            }
+          ]
+        }
+      },
+      "id": "d52b9b5c-4989-44fb-8a63-d3c235d5fcb8",
+      "name": "Supabase3",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1952,
+        48
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "c57de6a9-1387-41de-8eaf-ae2bb17e035c",
+      "name": "Loop Over Items3",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1040,
+        112
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "703d55e6-8cc2-4c07-8b3f-e71f9ca3bc88",
+      "name": "Replace Me3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        2608,
+        288
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# ATUALIZA BASE DE PRODUTOS",
+        "height": 510,
+        "width": 3047,
+        "color": 4
+      },
+      "id": "19799ba5-c775-4f7b-b115-c3728c9eef10",
+      "name": "Sticky Note3",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "tableId": "produtos_pincbar",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "id",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.id }}"
+            },
+            {
+              "fieldId": "titulo_produto",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.title }}"
+            },
+            {
+              "fieldId": "descricao_produto",
+              "fieldValue": "={{ $('Code').item.json.cleaned_body }}"
+            },
+            {
+              "fieldId": "data_criacao",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.created_at }}"
+            },
+            {
+              "fieldId": "url_do_produto",
+              "fieldValue": "=https://pincbar.com.br/products/{{ $node['Loop Over Items3'].json.handle }}"
+            },
+            {
+              "fieldId": "status_produto",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.status }}"
+            },
+            {
+              "fieldId": "data_ultima_atualizacao",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.updated_at }}"
+            },
+            {
+              "fieldId": "preco_produto",
+              "fieldValue": "=R$ {{ $node['Loop Over Items3'].json.variants[0].price.replaceAll('.',',') }}"
+            },
+            {
+              "fieldId": "url_imagem_01",
+              "fieldValue": "="
+            },
+            {
+              "fieldId": "tipo_produto",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.product_type }}"
+            },
+            {
+              "fieldId": "estoque_atual",
+              "fieldValue": "={{ $node['Loop Over Items3'].json.variants[0].inventory_quantity }}"
+            }
+          ]
+        }
+      },
+      "id": "7a0862c5-5a2e-435c-8ea5-27a5b1b462bd",
+      "name": "Supabase4",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2608,
+        48
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        1984,
+        1664
+      ],
+      "id": "56440ca7-34f1-4d0f-bef1-b50995b12fe3",
+      "name": "Embeddings OpenAI3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        2032,
+        2192
+      ],
+      "id": "672ef87c-bee0-466f-850c-26b1f08503d1",
+      "name": "When chat message received",
+      "webhookId": "d20380e0-366d-4efb-b072-a760e660b680"
+    },
+    {
+      "parameters": {
+        "options": {
+          "systemMessage": "=Você é um agente de ia chamado pincsuporte que faz o atendimento do e-commerce da pincbar para clientes.\n\nutilize a tool \"consulta_produtos\" para ver informações sobre produtos (exceto lista de produtos preço e url)\nutilize a tool \"consulta_url_preco\" para ver preço, lista de produtos e url de produtos\nutilize a tool \"info_empresa\" para ver informações sobre a empresa, troca e devolução, parcerias, lojistas, influenciadores etc.\n\nResponda de uma maneira divertida, leve, simpática, discontraida com emojis e que não passe 400 caracteres."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.9,
+      "position": [
+        2320,
+        2192
+      ],
+      "id": "052c9612-3bd0-4076-9f87-e67e7b24555b",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4o-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2192,
+        2384
+      ],
+      "id": "2431e112-332b-47db-aa58-6e4304e7ec3b",
+      "name": "OpenAI Chat Model"
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2352,
+        2368
+      ],
+      "id": "2c7c40dd-16ad-44ac-8284-1194323712d2",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2512,
+        2560
+      ],
+      "id": "bc7d9852-1676-4c48-9025-af248398832f",
+      "name": "Embeddings OpenAI4"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "consulta_produtos",
+        "toolDescription": "Útil para consulta de informações sobre produtos (exceto lista de produtos, preços e url)",
+        "tableName": {
+          "__rl": true,
+          "value": "base_produtos_pincbar",
+          "mode": "list",
+          "cachedResultName": "base_produtos_pincbar"
+        },
+        "topK": 15,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.1,
+      "position": [
+        2544,
+        2384
+      ],
+      "id": "1c7d5ea3-554c-4c1e-a99a-e95dd2320aac",
+      "name": "consulta_produtos"
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini-2024-07-18",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI-2024-07-18"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Você é um modelo avançado de IA especializado em criar conteúdo baseado em dados fornecidos. Receberá informações detalhadas sobre um produto e precisará gerar **30 perguntas e respostas (Q&A)** que clientes possam fazer sobre esse produto.\n\nUse as informações fornecidas para criar perguntas e respostas claras e úteis. Inclua detalhes sobre título e  descrição. As perguntas devem cobrir possíveis dúvidas de clientes sobre o produto e suas características. As respostas devem ser em tom leve, curto, carismático e em algumas respostas utilize emojis.\n\n**Exemplo do formato esperado**:\nQ: pergunta01  \nA: pergunta01\n---\nQ: pergunta02  \nA: pergunta02\n---\nQ: pergunta03 \nA: pergunta03\n\n**Instruções adicionais**:\n1. Use todas as informações fornecidas no contexto.\n2. Certifique-se de que as perguntas sejam diversificadas e úteis para diferentes cenários.\n3. Inclua perguntas sobre as principais características do produto, seus benefícios e como usá-lo.\n\nAgora, gere as 30 perguntas e respostas com base nas seguintes informações:\n- Título: {{ $('Loop Over Items2').item.json.titulo_produto }}\n- Descrição: {{ $('Loop Over Items2').item.json.descricao_produto }}\n\n\nSua resposta somente deve ser a pergunta e a resposta.",
+              "role": "assistant"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "af052195-7180-4830-a19d-d5e4dc3f2d69",
+      "name": "Monta FAQ",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        1632,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4o-mini-2024-07-18",
+          "mode": "list",
+          "cachedResultName": "GPT-4O-MINI-2024-07-18"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Você é um modelo avançado de IA especializado em criar conteúdo baseado em dados fornecidos. Receberá informações detalhadas sobre um produto e precisará gerar **5 frases** formatadas de forma clara e organizada, utilizando os dados fornecidos.\n\nCada frase deve incluir informações específicas sobre o título, descrição, URL, status, preço e tipo do produto, seguindo o formato abaixo:\n\n1. O título do produto é {{ $json.titulo_produto }}.  \n2. A descrição do produto é: {{ $json.descricao_produto }}.  \n3. A URL do produto é: {{ $json.url_do_produto }}.  \n4. O status do produto é: {{ $json.status_produto }}.  \n5. O preço do produto é: {{ $json.preco_produto }} podendo ser parcelado em 4x de R$ (calcule) sem juros.  \n6. O tipo do produto é: {{ $json.tipo_produto }}.  \n\n**Instruções adicionais**:\n1. Utilize as informações fornecidas no contexto para criar as frases.  \n2. Certifique-se de que o formato siga exatamente o modelo apresentado.  \n3. Seja direto e específico, sem adicionar perguntas, respostas ou interpretações extras.  \n\nCom base nas seguintes informações: \n- Título: {{ $json.titulo_produto }}  \n- Descrição: {{ $json.descricao_produto }}  \n- URL: {{ $json.url_do_produto }}  \n- Status: {{ $json.status_produto }}  \n- Preço: {{ $json.preco_produto }}  \n- Tipo: {{ $json.tipo_produto }}  \n\nGere as 6 frases no formato especificado.\n\nNão diminua texto nem corte frases. Deixe as informações completas.",
+              "role": "assistant"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "72367cc8-1971-4f23-ac98-79e81a322126",
+      "name": "Monta Informações",
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.6,
+      "position": [
+        944,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5151a44d-dd2b-444a-98db-f3aa736671d2",
+              "name": "descricao_produto",
+              "value": "={{ $('Monta Informações').item.json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "6f31b596-aa73-4457-9997-054295e0d12f",
+              "name": "titulo_produto",
+              "value": "={{ $('Loop Over Items2').item.json.titulo_produto }}",
+              "type": "string"
+            },
+            {
+              "id": "acbf91a1-84c8-4a63-b9d6-c4b2c3dafe38",
+              "name": "id",
+              "value": "={{ $('Loop Over Items2').item.json.id }}",
+              "type": "number"
+            },
+            {
+              "id": "699ddd15-4c79-40a1-9491-e3da8157c060",
+              "name": "faq",
+              "value": "={{ $json.message.content }}",
+              "type": "string"
+            },
+            {
+              "id": "a040d1b6-4dc7-4844-ba75-ea2321a6bca2",
+              "name": "status_produto",
+              "value": "={{ $('Supabase2').item.json.status_produto }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "df01cf60-6c80-4bd4-bdc6-c06ece06fd96",
+      "name": "Monta_Info",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        2144,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "base_produtos_pincbar",
+        "returnAll": true,
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id_produto",
+              "condition": "eq",
+              "keyValue": "={{ $json.id }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2624,
+        720
+      ],
+      "id": "cda3893a-c30c-4b1d-9ab1-20110bce6643",
+      "name": "busca_produto_base",
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "6fac2bec-2800-4d23-9d53-1f1c293e1e1f",
+              "leftValue": "={{ $('busca_produto_base').item.json }}",
+              "rightValue": "",
+              "operator": {
+                "type": "object",
+                "operation": "empty",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        1168
+      ],
+      "id": "076a9c96-dd9d-4092-acd4-69ae2480e4f0",
+      "name": "verifica se já existe produto"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "55492526-7a7f-4892-8496-d0eba411715e",
+              "name": "Q&A",
+              "value": "=[DESCRICAO]\n\n{{ $('Monta_Info').item.json.descricao_produto }}\n\n[FAQ]\n\n{{ $('Monta_Info').item.json.faq }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "59fde800-ed92-4046-89b5-ed784c8d9959",
+      "name": "pega_qea",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1328,
+        1008
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "tableName": {
+          "__rl": true,
+          "value": "base_produtos_pincbar",
+          "mode": "list",
+          "cachedResultName": "base_produtos_pincbar"
+        },
+        "options": {
+          "queryName": "match_base_produtos_pincbar"
+        }
+      },
+      "id": "b82514a8-bf59-4abf-801f-ec4de21f0453",
+      "name": "Insere Dado Vecto Store",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1,
+      "position": [
+        1664,
+        1008
+      ]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1387919c-c9c1-487c-81f6-e6aea342d9cc",
+              "name": "Q&A",
+              "value": "=[DESCRICAO]\n\n{{ $('Monta_Info').item.json.descricao_produto }}\n\n[FAQ]\n\n{{ $('Monta_Info').item.json.faq }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1280,
+        1504
+      ],
+      "id": "7c0c4533-8c7d-4b53-9768-a9db398e46f2",
+      "name": "pega_qea_atualiza_prod"
+    },
+    {
+      "parameters": {
+        "mode": "update",
+        "tableName": {
+          "__rl": true,
+          "value": "base_produtos_pincbar",
+          "mode": "list",
+          "cachedResultName": "base_produtos_pincbar"
+        },
+        "id": "={{ $('verifica se já existe produto').item.json.id }}",
+        "options": {
+          "queryName": "match_base_produtos_pincbar"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.1,
+      "position": [
+        2112,
+        1504
+      ],
+      "id": "68f06aac-0baf-46bd-a38c-d143d9b3ff0c",
+      "name": "Atualiza Vector Store"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "tableId": "base_produtos_pincbar",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "={{ $json.id }}"
+            }
+          ]
+        },
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": "id_produto",
+              "fieldValue": "={{ $json.metadata.id_produto }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2544,
+        1008
+      ],
+      "id": "11c552be-f18d-42e1-9c0d-27f9cdc7d9fb",
+      "name": "Supabase5"
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "base_produtos_pincbar",
+        "returnAll": true,
+        "filterType": "none"
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        2128,
+        1008
+      ],
+      "id": "f2e0d3db-b72b-4f54-98d5-fe890563fff0",
+      "name": "Supabase6"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "3ac9c5d7-aebe-48ac-8398-e8173a182a0b",
+              "leftValue": "={{ $json.metadata.id_produto }}",
+              "rightValue": "={{ $('Insere Dado Vecto Store').item.json.metadata.id_produto }}",
+              "operator": {
+                "type": "number",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        2352,
+        1008
+      ],
+      "id": "d4ece40a-b74b-42a0-93e7-bd88493c3d1b",
+      "name": "Filter"
+    },
+    {
+      "parameters": {
+        "descriptionType": "manual",
+        "toolDescription": "útil para consultar preço e url de produto",
+        "operation": "getAll",
+        "tableId": "produtos_pincbar",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.supabaseTool",
+      "typeVersion": 1,
+      "position": [
+        2928,
+        2288
+      ],
+      "id": "ce455342-367d-4c79-a888-a00300e1738a",
+      "name": "consulta_preco_url"
+    },
+    {
+      "parameters": {
+        "authentication": "accessToken",
+        "resource": "product",
+        "operation": "getAll",
+        "returnAll": true,
+        "additionalFields": {}
+      },
+      "id": "5b6d2d93-cc27-4211-87c6-760a8905b7a3",
+      "name": "Shopify1",
+      "type": "n8n-nodes-base.shopify",
+      "typeVersion": 1,
+      "position": [
+        448,
+        2160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "getAll",
+        "tableId": "base_produtos_pincbar",
+        "returnAll": true
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        448,
+        2384
+      ],
+      "id": "4d078501-06cd-4953-8180-8c650c77e5cc",
+      "name": "Supabase7",
+      "executeOnce": true
+    },
+    {
+      "parameters": {
+        "mode": "combine",
+        "advanced": true,
+        "mergeByFields": {
+          "values": [
+            {
+              "field1": "id",
+              "field2": "id_produto"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.1,
+      "position": [
+        1040,
+        2208
+      ],
+      "id": "39eaec08-8170-4229-a546-1e6a5488b9fa",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "f2d038dd-4e3e-416a-9f9a-e488e607b785",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "draft",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        2160
+      ],
+      "id": "a2b38eb4-1309-4024-9840-7ba7dbb56dbb",
+      "name": "Filter1"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "base_produtos_pincbar",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id_produto",
+              "condition": "eq",
+              "keyValue": "={{ $json.id_produto }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1264,
+        2208
+      ],
+      "id": "4d1b2b11-32a1-4bd2-9692-67f97dfee862",
+      "name": "Supabase"
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "tableId": "produtos_pincbar",
+        "filters": {
+          "conditions": [
+            {
+              "keyName": "id",
+              "condition": "eq",
+              "keyValue": "={{ $('Merge').item.json.id_produto }}"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [
+        1488,
+        2208
+      ],
+      "id": "d22b2bad-ed0b-445c-9393-e2e99ce19de4",
+      "name": "Supabase1"
+    },
+    {
+      "parameters": {
+        "content": "# EXCLUI PRODUTOS EM RASCUNHO\n",
+        "height": 582,
+        "width": 1778,
+        "color": 6
+      },
+      "id": "8dd40fba-8655-4859-ab0c-01f3cee0e0c1",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        0,
+        2032
+      ]
+    },
+    {
+      "parameters": {
+        "content": "# TESTA RAG",
+        "height": 742,
+        "width": 1358,
+        "color": 3
+      },
+      "id": "ce2167cd-0686-4a88-958f-143f431b4c8e",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        1840,
+        2032
+      ]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 1
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        112,
+        128
+      ],
+      "id": "c457968b-da31-4627-bc2e-3392810cd7cc",
+      "name": "Roda todo dia 01:00"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks",
+              "triggerAtHour": 2
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        128,
+        704
+      ],
+      "id": "f05b1d86-ce9d-4122-9515-ec91eae71d1e",
+      "name": "Roda 1x semana 02:00"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "weeks"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        160,
+        2208
+      ],
+      "id": "2101cc00-e76e-4b07-9309-f1015ef7f733",
+      "name": "Roda 1x semana 00:00"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.embeddingsOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        2768,
+        2624
+      ],
+      "id": "2fa5b2b7-efeb-41c5-84b1-4468fe20f6d9",
+      "name": "Embeddings OpenAI1"
+    },
+    {
+      "parameters": {
+        "mode": "retrieve-as-tool",
+        "toolName": "info_empresa",
+        "toolDescription": "útil para consultar informações sobre: empresa, troca e devolução, lojista, influenciadores, parcerias etc..",
+        "tableName": {
+          "__rl": true,
+          "value": "documents",
+          "mode": "list",
+          "cachedResultName": "documents"
+        },
+        "topK": 15,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreSupabase",
+      "typeVersion": 1.1,
+      "position": [
+        2864,
+        2480
+      ],
+      "id": "9db676a0-480c-4a8d-8837-78b7dfda288e",
+      "name": "info_empresa"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-13T13:37:57.544Z",
+      "createdAt": "2025-11-13T13:37:57.544Z",
+      "role": "workflow:owner",
+      "workflowId": "g4Oy9nDCbl9q32NO",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-13T13:37:57.000Z",
+  "versionId": "5fd3bf1e-0e8e-4654-91c0-9c04d75fc22c"
+}
