@@ -1,0 +1,486 @@
+{
+  "active": false,
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Retorna os clientes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retorna os clientes": {
+      "main": [
+        [
+          {
+            "node": "Pega os dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pega os dados": {
+      "main": [
+        [
+          {
+            "node": "Verifica se FollowUP é igual a falso",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Switch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Switch": {
+      "main": [
+        [
+          {
+            "node": "Resposta Cliente Nome",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Resposta Cliente Problema",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Resposta Cliente Ticket",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resposta Cliente Nome": {
+      "main": [
+        [
+          {
+            "node": "Marca FollowUp True",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resposta Cliente Problema": {
+      "main": [
+        [
+          {
+            "node": "Marca FollowUp True",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resposta Cliente Ticket": {
+      "main": [
+        [
+          {
+            "node": "Marca FollowUp True",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Marca FollowUp True": {
+      "main": [
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifica se FollowUP é igual a falso": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-13T13:03:50.439Z",
+  "id": "hE0gKJoZDS6peyWu",
+  "isArchived": false,
+  "meta": null,
+  "name": "Tool FollowUP - Dominando Automacoes",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 2
+            },
+            {}
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -1520,
+        288
+      ],
+      "id": "5946514c-b4ee-422f-8224-595693b273b5",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "databaseId": 223798,
+        "tableId": 535707,
+        "returnAll": true,
+        "additionalOptions": {}
+      },
+      "type": "n8n-nodes-base.baserow",
+      "typeVersion": 1,
+      "position": [
+        -1296,
+        288
+      ],
+      "id": "2e88522e-1e26-4be0-95d0-92aac762d072",
+      "name": "Retorna os clientes"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "af7bce0b-c121-473a-b58e-fc746351ebad",
+              "name": "Nome",
+              "value": "={{ $json.Nome }}",
+              "type": "string"
+            },
+            {
+              "id": "e905afc8-d009-4b0c-bc4b-bbb647522102",
+              "name": "Problema do Cliente",
+              "value": "={{ $json['Problema do Cliente'] }}",
+              "type": "string"
+            },
+            {
+              "id": "8c8c5239-21ca-49a8-bb61-fc0054a3bbfd",
+              "name": "Ticket Médio",
+              "value": "={{ $json['Ticket Médio'] }}",
+              "type": "string"
+            },
+            {
+              "id": "11ec9865-baac-4dd3-9768-0699d663e2d2",
+              "name": "FollowUp",
+              "value": "={{ $json.FollowUp }}",
+              "type": "boolean"
+            },
+            {
+              "id": "1734a6d8-8db8-4d61-a70e-4aa9859918ca",
+              "name": "Whatsapp",
+              "value": "={{ $json.Whatsapp }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -1088,
+        288
+      ],
+      "id": "c97eba63-3d19-4a71-8d37-5ef06c6f244f",
+      "name": "Pega os dados"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -560,
+        272
+      ],
+      "id": "bf98d6b2-e4ea-4605-a755-82b18047e793",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        592,
+        480
+      ],
+      "id": "8d0a64f6-65d8-40a5-9c5e-e9bffb139eab"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "84db03ed-0f8c-4535-adc7-1c2ee02233e0",
+                    "leftValue": "={{ $json.Nome }}",
+                    "rightValue": "",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Nome"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json['Problema do Cliente'] }}",
+                    "rightValue": "null",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    },
+                    "id": "759023aa-a73f-4ae4-8aa1-3751c34428d4"
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Problema do Cliente"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "f165264b-5a67-41dd-95dc-5f4765d700e7",
+                    "leftValue": "={{ $json['Ticket Médio'] }}",
+                    "rightValue": "null",
+                    "operator": {
+                      "type": "string",
+                      "operation": "empty",
+                      "singleValue": true
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "Ticket"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        -256,
+        320
+      ],
+      "id": "51bade36-ee41-4603-a28a-5f5d0a3c8c4f",
+      "name": "Switch",
+      "alwaysOutputData": false,
+      "executeOnce": false
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://evolution.outoflow.online/message/sendText/Will_01",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"number\": \"{{ $json.Whatsapp }}\",\n  \"text\": \"Olá, percebemos que você não me informou o seu nome, poderia nos informar para dar segmento?\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "4f1db926-bbd1-44d4-b80e-aa69dee91f98",
+      "name": "Resposta Cliente Nome"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://evolution.outoflow.online/message/sendText/Will_01",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"number\": \"{{ $json.Whatsapp }}\",\n  \"text\": \"Olá, percebemos que você não me informou o seu problema, poderia nos informar para dar segmento?\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        272
+      ],
+      "id": "75b097f1-ed1c-41fa-88e4-b96ba9ddcefb",
+      "name": "Resposta Cliente Problema"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=https://evolution.outoflow.online/message/sendText/Will_01",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"number\": \"{{ $json.Whatsapp }}\",\n  \"text\": \"Olá, percebemos que você não me informou o seu problema, poderia nos informar para dar segmento?\"\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        0,
+        512
+      ],
+      "id": "7ed761ad-9f99-481c-a125-a39103b2116b",
+      "name": "Resposta Cliente Ticket"
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "databaseId": 223798,
+        "tableId": 535707,
+        "rowId": "={{ $('Retorna os clientes').item.json.id }}",
+        "fieldsUi": {
+          "fieldValues": [
+            {
+              "fieldId": 4273471,
+              "fieldValue": "true"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.baserow",
+      "typeVersion": 1,
+      "position": [
+        304,
+        272
+      ],
+      "id": "8519dabe-301a-429c-9f46-2b9024e8d863",
+      "name": "Marca FollowUp True"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a07395db-1f9d-4723-b7dd-b6b6139e8292",
+              "leftValue": "={{ $json.FollowUp }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -864,
+        288
+      ],
+      "id": "c52f4571-517d-4242-8029-ddad3ac15379",
+      "name": "Verifica se FollowUP é igual a falso"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-13T13:03:50.442Z",
+      "createdAt": "2025-11-13T13:03:50.442Z",
+      "role": "workflow:owner",
+      "workflowId": "hE0gKJoZDS6peyWu",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-13T13:03:50.000Z",
+  "versionId": "aa8cbb58-48ce-4eed-8bed-1bbd51db5333"
+}
