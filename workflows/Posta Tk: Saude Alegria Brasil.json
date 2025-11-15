@@ -78,7 +78,7 @@
       "main": [
         [
           {
-            "node": "Apaga do Drive Para Não Lotar",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -90,6 +90,17 @@
         [
           {
             "node": "Organiza o título e descrição",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Apaga do Drive Para Não Lotar",
             "type": "main",
             "index": 0
           }
@@ -222,7 +233,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        0,
+        208,
         0
       ],
       "id": "5c446ef8-f6d3-461e-8192-397e9428fe6d",
@@ -421,6 +432,21 @@
           "name": "OpenAi account"
         }
       }
+    },
+    {
+      "parameters": {
+        "amount": 2,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        -48,
+        16
+      ],
+      "id": "e0394c58-48cc-4d99-b954-d5bc069de276",
+      "name": "Wait",
+      "webhookId": "0b845e9d-30b1-450d-893f-0d5bc5941c12"
     }
   ],
   "pinData": {},
@@ -446,6 +472,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-12T10:58:35.000Z",
-  "versionId": "d8a9d761-bcb9-4c2e-bc94-4f17a02d4549"
+  "updatedAt": "2025-11-15T15:13:09.000Z",
+  "versionId": "49d1edf0-db88-4551-ab12-cb2b8469a402"
 }
