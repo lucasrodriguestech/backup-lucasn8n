@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2025-11-14T16:30:08.597Z",
-  "id": "WX2V626Jk2yG5I6N",
+  "createdAt": "2025-11-14T16:30:07.799Z",
+  "id": "BHhzkRJPkoawNLsL",
   "isArchived": false,
   "meta": {
     "templateCredsSetupCompleted": true
@@ -66,16 +66,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2025-11-14T16:30:08.599Z",
-      "createdAt": "2025-11-14T16:30:08.599Z",
+      "updatedAt": "2025-11-14T16:30:07.823Z",
+      "createdAt": "2025-11-14T16:30:07.823Z",
       "role": "workflow:owner",
-      "workflowId": "WX2V626Jk2yG5I6N",
+      "workflowId": "BHhzkRJPkoawNLsL",
       "projectId": "NmjiBPxycE3xYO0z"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-11-14T16:30:08.597Z",
-  "versionId": "dc59a960-88bd-4cfd-8557-c1749644a582"
+  "updatedAt": "2025-11-14T16:30:07.799Z",
+  "versionId": "b76e5699-63e5-49f9-95f6-3814e401a740"
 }
