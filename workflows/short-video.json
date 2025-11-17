@@ -1,0 +1,602 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Generate audio",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Execute Command3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Split Out": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "IMAGE_GENERATION",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IMAGE_GENERATION": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command3": {
+      "main": [
+        [
+          {
+            "node": "Execute Command1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate audio": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Read/Write Files from Disk1": {
+      "main": [
+        [
+          {
+            "node": "Execute Command4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command2": {
+      "main": [
+        [
+          {
+            "node": "imageDuration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent1": {
+      "main": [
+        [
+          {
+            "node": "Split Out",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command4": {
+      "main": [
+        [
+          {
+            "node": "EditFields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "EditFields1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "imageDuration": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-16T15:36:22.122Z",
+  "id": "XR1zKQdWn9Ia6Ogc",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "short-video",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Título: \"{{ $json.Description }}\"\nPor favor, gere uma transcrição assustadora de 1 minuto para o YouTube, tornando-a o mais aterrorizante possível. A história deve ser escrita como uma cena contínua com duração aproximada de 1 minuto.\n\nVocê deve retornar apenas o narrável.",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 2.2,
+      "position": [
+        80,
+        -48
+      ],
+      "id": "593fcae8-a2e4-4c21-84ec-233936d08719",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "gpt-4.1-mini"
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.2,
+      "position": [
+        32,
+        144
+      ],
+      "id": "9fca07a7-6bef-4206-bebc-250f89d430de",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "Free Image Generation",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Description"
+            }
+          ]
+        },
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.2,
+      "position": [
+        -864,
+        -48
+      ],
+      "id": "cf988af9-0e99-4a68-a2e9-85019eea773e",
+      "name": "On form submission",
+      "webhookId": "3972b296-364f-4e58-aee6-671a1267032c"
+    },
+    {
+      "parameters": {
+        "fieldToSplitOut": "output",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitOut",
+      "typeVersion": 1,
+      "position": [
+        2224,
+        -48
+      ],
+      "id": "2ea297cc-55e4-401c-bdfb-0c1f8ad2c1af",
+      "name": "Split Out"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        2640,
+        -64
+      ],
+      "id": "83428656-59ae-4fcf-bd77-1b37d3b58a0e",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "huggingFaceApi",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Accept",
+              "value": "image/png"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "=\n    {\n\n      \"inputs\":  \"Generate image of {{ $item(\"0\").$node[\"Loop Over Items\"].json[\"output\"] }}\"    \n\n  \n} ",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        2976,
+        -48
+      ],
+      "id": "7aa6157f-1395-4c2c-bed8-009643ae1f8e",
+      "name": "IMAGE_GENERATION",
+      "credentials": {
+        "huggingFaceApi": {
+          "id": "ThasUDaSWeJPOi9D",
+          "name": "HuggingFaceApi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "command": "=ffmpeg -y \\\n-i /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/audio.mp3 \\\n-loop 1 \\\n-t {{ $item(\"0\").$node['Code1'].json.imageDuration }} \\\n-i /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/imagem-%d.png \\\n-c:v libx264 -tune stillimage -pix_fmt yuv420p \\\n-b:v 1M \\\n-shortest \\\n-filter_complex \"[1:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v]\" \\\n-map \"[v]\" -map \"0:a\" \\\n/tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/output_video.mp4"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        3776,
+        -592
+      ],
+      "id": "bb959397-79a5-4989-af46-aed78aa10e5c",
+      "name": "Execute Command"
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "=/tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/imagem-{{ $runIndex }}.png",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        3280,
+        48
+      ],
+      "id": "1d16f5c2-590b-4dc4-bd81-4db6da756e12",
+      "name": "Read/Write Files from Disk"
+    },
+    {
+      "parameters": {
+        "command": "=mkdir -p /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -272,
+        -48
+      ],
+      "id": "35f13612-0c5f-40ee-b471-eaa171513940",
+      "name": "Execute Command1"
+    },
+    {
+      "parameters": {
+        "command": "=ls /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        3072,
+        -592
+      ],
+      "id": "0a2a1d47-4efa-4081-aa4c-e1fc50e4cf60",
+      "name": "Execute Command2"
+    },
+    {
+      "parameters": {
+        "command": "rm -rf /tmp/videos/*\n"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        -592,
+        -48
+      ],
+      "id": "7c8d1b1d-b917-44f5-b69f-1fe2c7cde181",
+      "name": "Execute Command3"
+    },
+    {
+      "parameters": {
+        "resource": "audio",
+        "input": "={{ $item(\"0\").$node[\"AI Agent\"].json[\"output\"] }}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 2,
+      "position": [
+        496,
+        -48
+      ],
+      "id": "cdbf8f7a-5b9b-44a1-afe6-86096b1db478",
+      "name": "Generate audio",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "=/tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/audio.mp3",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        784,
+        -48
+      ],
+      "id": "ab4d3267-493f-4f1d-b730-3896a7036372",
+      "name": "Read/Write Files from Disk1"
+    },
+    {
+      "parameters": {
+        "fileSelector": "=/tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/output_video.mp4",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        4080,
+        -592
+      ],
+      "id": "bce5f715-3d1a-4f38-a9b5-97ab1e029216",
+      "name": "Read/Write Files from Disk2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Você é um assistente criador de prompts de imagens com alto impacto visual que ilustrem de forma impactante o trecho  do roteiro, você deve gerar 5 prrompts.\n\nTema do vídeo: {{ $item(\"0\").$node[\"AI Agent\"].json[\"output\"] }}\n\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1616,
+        -48
+      ],
+      "id": "686c22c5-613e-4925-9b63-77215bf5d659",
+      "name": "AI Agent1"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1568,
+        160
+      ],
+      "id": "ecaad921-77ac-4f79-aac1-e3659ad8e2ac",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\"prompt 1\": \"string\",\n\"prompt 2\": \"string\",\n\"prompt 3\": \"string\",\n\"prompt 4\": \"string\",\n\"prompt 5\": \"string\"\n} "
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1808,
+        160
+      ],
+      "id": "c56ac25f-f88c-4b62-80a9-d0105d13a565",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "command": "=ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/audio.mp3"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        1072,
+        -48
+      ],
+      "id": "e936640d-45ec-4b02-be6e-792f38d60258",
+      "name": "Execute Command4"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "affb4ea7-317c-4782-87dd-612e3d3e9307",
+              "name": "duracaoAudio",
+              "value": "={{ $json.stdout }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        1328,
+        -48
+      ],
+      "id": "daa14d11-dd91-47c6-a5b7-787cc2b1b039",
+      "name": "EditFields1"
+    },
+    {
+      "parameters": {
+        "command": "=const duracaoTotal = parseFloat($item(0).$node['EditFields1'].json.duracaoAudio);\nconst numeroDeImagens = 6; // Se você tiver 6 imagens (0 a 5)\n\nconst duracaoPorImagem = duracaoTotal / numeroDeImagens;\n\nreturn [\n  {\n    json: {\n      duracaoTotal: duracaoTotal,\n      // Passa a duração de cada imagem com 3 casas decimais\n      imageDuration: duracaoPorImagem.toFixed(3) \n    }\n  }\n];"
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        3408,
+        -592
+      ],
+      "id": "54b90140-28d5-4a79-997c-e07b2aa7bef0",
+      "name": "imageDuration"
+    }
+  ],
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "Description": "chuva negra",
+          "submittedAt": "2025-11-17T05:07:22.987-05:00",
+          "formMode": "test"
+        }
+      }
+    ]
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-16T15:36:22.129Z",
+      "createdAt": "2025-11-16T15:36:22.129Z",
+      "role": "workflow:owner",
+      "workflowId": "XR1zKQdWn9Ia6Ogc",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-17T10:25:56.000Z",
+  "versionId": "0dfb29e0-90ea-4272-a5c0-39a6d8ab48af"
+}
