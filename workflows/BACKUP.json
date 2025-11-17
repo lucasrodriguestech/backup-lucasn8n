@@ -485,12 +485,12 @@
   "staticData": {
     "node:Schedule Trigger": {
       "recurrenceRules": [
-        0
+        12
       ]
     }
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-12T09:42:03.000Z",
+  "updatedAt": "2025-11-17T11:46:26.000Z",
   "versionId": "f9b17eda-d22d-429e-bb48-adef939c3205"
 }
