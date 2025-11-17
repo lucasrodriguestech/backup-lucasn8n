@@ -16,7 +16,7 @@
       "main": [
         [
           {
-            "node": "Generate audio",
+            "node": "HTTP Request",
             "type": "main",
             "index": 0
           }
@@ -47,21 +47,16 @@
     },
     "Loop Over Items": {
       "main": [
-        [],
         [
           {
-            "node": "IMAGE_GENERATION",
+            "node": "Execute Command2",
             "type": "main",
             "index": 0
           }
-        ]
-      ]
-    },
-    "IMAGE_GENERATION": {
-      "main": [
+        ],
         [
           {
-            "node": "Read/Write Files from Disk",
+            "node": "Generate an image",
             "type": "main",
             "index": 0
           }
@@ -103,13 +98,7 @@
     },
     "Generate audio": {
       "main": [
-        [
-          {
-            "node": "Read/Write Files from Disk1",
-            "type": "main",
-            "index": 0
-          }
-        ]
+        []
       ]
     },
     "Read/Write Files from Disk1": {
@@ -127,7 +116,7 @@
       "main": [
         [
           {
-            "node": "imageDuration",
+            "node": "Code in JavaScript",
             "type": "main",
             "index": 0
           }
@@ -200,11 +189,33 @@
         ]
       ]
     },
-    "imageDuration": {
+    "Code in JavaScript": {
       "main": [
         [
           {
             "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate an image": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk1",
             "type": "main",
             "index": 0
           }
@@ -313,51 +324,12 @@
     },
     {
       "parameters": {
-        "method": "POST",
-        "url": "https://router.huggingface.co/hf-inference/models/black-forest-labs/FLUX.1-schnell",
-        "authentication": "predefinedCredentialType",
-        "nodeCredentialType": "huggingFaceApi",
-        "sendHeaders": true,
-        "headerParameters": {
-          "parameters": [
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            },
-            {
-              "name": "Accept",
-              "value": "image/png"
-            }
-          ]
-        },
-        "sendBody": true,
-        "specifyBody": "json",
-        "jsonBody": "=\n    {\n\n      \"inputs\":  \"Generate image of {{ $item(\"0\").$node[\"Loop Over Items\"].json[\"output\"] }}\"    \n\n  \n} ",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.httpRequest",
-      "typeVersion": 4.2,
-      "position": [
-        2976,
-        -48
-      ],
-      "id": "7aa6157f-1395-4c2c-bed8-009643ae1f8e",
-      "name": "IMAGE_GENERATION",
-      "credentials": {
-        "huggingFaceApi": {
-          "id": "ThasUDaSWeJPOi9D",
-          "name": "HuggingFaceApi account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "command": "=ffmpeg -y \\\n-i /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/audio.mp3 \\\n-loop 1 \\\n-t {{ $item(\"0\").$node['Code1'].json.imageDuration }} \\\n-i /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/imagem-%d.png \\\n-c:v libx264 -tune stillimage -pix_fmt yuv420p \\\n-b:v 1M \\\n-shortest \\\n-filter_complex \"[1:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v]\" \\\n-map \"[v]\" -map \"0:a\" \\\n/tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/output_video.mp4"
+        "command": "=ffmpeg -y \\\n-i /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/audio.mp3 \\\n-loop 1 \\\n-t {{ $item(\"0\").$node[\"Code in JavaScript\"].json[\"imageDuration\"] }} \\\n-i /tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/imagem-%d.png \\\n-c:v libx264 -tune stillimage -pix_fmt yuv420p \\\n-b:v 1M \\\n-shortest \\\n-filter_complex \"[1:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1[v]\" \\\n-map \"[v]\" -map \"0:a\" \\\n/tmp/videos/{{ $item(\"0\").$node[\"On form submission\"].json[\"Description\"].replace(/\\s+/g, '_') }}/output_video.mp4"
       },
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        3776,
+        3984,
         -592
       ],
       "id": "bb959397-79a5-4989-af46-aed78aa10e5c",
@@ -372,7 +344,7 @@
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [
-        3280,
+        3296,
         48
       ],
       "id": "1d16f5c2-590b-4dc4-bd81-4db6da756e12",
@@ -398,7 +370,7 @@
       "type": "n8n-nodes-base.executeCommand",
       "typeVersion": 1,
       "position": [
-        3072,
+        3344,
         -592
       ],
       "id": "0a2a1d47-4efa-4081-aa4c-e1fc50e4cf60",
@@ -426,8 +398,8 @@
       "type": "@n8n/n8n-nodes-langchain.openAi",
       "typeVersion": 2,
       "position": [
-        496,
-        -48
+        528,
+        -320
       ],
       "id": "cdbf8f7a-5b9b-44a1-afe6-86096b1db478",
       "name": "Generate audio",
@@ -436,7 +408,8 @@
           "id": "9tAaYio9SqQQ0jDd",
           "name": "OpenAi account"
         }
-      }
+      },
+      "disabled": true
     },
     {
       "parameters": {
@@ -461,7 +434,7 @@
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
       "position": [
-        4080,
+        4224,
         -592
       ],
       "id": "bce5f715-3d1a-4f38-a9b5-97ab1e029216",
@@ -559,16 +532,69 @@
     },
     {
       "parameters": {
-        "command": "=const duracaoTotal = parseFloat($item(0).$node['EditFields1'].json.duracaoAudio);\nconst numeroDeImagens = 6; // Se você tiver 6 imagens (0 a 5)\n\nconst duracaoPorImagem = duracaoTotal / numeroDeImagens;\n\nreturn [\n  {\n    json: {\n      duracaoTotal: duracaoTotal,\n      // Passa a duração de cada imagem com 3 casas decimais\n      imageDuration: duracaoPorImagem.toFixed(3) \n    }\n  }\n];"
+        "jsCode": "const duracaoTotal = parseFloat($item(0).$node['EditFields1'].json.duracaoAudio);\nconst numeroDeImagens = 6; // Se você tiver 6 imagens (0 a 5)\n\nconst duracaoPorImagem = duracaoTotal / numeroDeImagens;\n\nreturn [\n  {\n    json: {\n      duracaoTotal: duracaoTotal,\n      // Retorna a duração por imagem, formatada com 3 casas decimais\n      imageDuration: duracaoPorImagem.toFixed(3)\n    }\n  }\n];"
       },
-      "type": "n8n-nodes-base.executeCommand",
-      "typeVersion": 1,
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
       "position": [
-        3408,
+        3680,
         -592
       ],
-      "id": "54b90140-28d5-4a79-997c-e07b2aa7bef0",
-      "name": "imageDuration"
+      "id": "f016dc72-3c64-4bca-be52-87d2b1278f99",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "resource": "image",
+        "modelId": {
+          "__rl": true,
+          "value": "models/imagen-4.0-fast-generate-001",
+          "mode": "list",
+          "cachedResultName": "models/imagen-4.0-fast-generate-001"
+        },
+        "prompt": "={\n  \"inputs\": \"{{ 'Generate image of ' + $item(\"0\").$node[\"Loop Over Items\"].json[\"output\"] }}\"\n}",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        2992,
+        -32
+      ],
+      "id": "9dda1443-8852-43d7-baec-04ad57eed5bc",
+      "name": "Generate an image",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Y6p0d9RhJ5HSGRIC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://texttospeech.googleapis.com/v1/text:synthesize",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "googleCloudNaturalLanguageOAuth2Api",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"input\": {\n    \"text\": \"{{ $item(\"0\").$node[\"AI Agent\"].json[\"output\"] }}\"\n  },\n  \"voice\": {\n    \"languageCode\": \"pt-BR\",\n    \"name\": \"pt-BR-Chirp3-HD-Orus\",\n    \"ssmlGender\": \"MALE\"\n  },\n  \"audioConfig\": {\n    \"audioEncoding\": \"MP3\"\n  }\n}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        512,
+        -48
+      ],
+      "id": "48ce222f-b328-4243-a836-d4a370bd8c33",
+      "name": "HTTP Request",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Y6p0d9RhJ5HSGRIC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
     }
   ],
   "pinData": {
@@ -597,6 +623,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-11-17T10:25:56.000Z",
-  "versionId": "0dfb29e0-90ea-4272-a5c0-39a6d8ab48af"
+  "updatedAt": "2025-11-17T16:06:40.000Z",
+  "versionId": "aade8316-9748-46cb-ba0b-e6f481bd420b"
 }
