@@ -236,8 +236,8 @@
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "s0DTtEIAh2oPOvzG",
-          "name": "lucasrodrigues.contato"
+          "id": "gmyjZBB9GGHcObPq",
+          "name": "Personavital(Sombra Policial)"
         }
       }
     },
@@ -255,8 +255,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        352,
-        336
+        288,
+        320
       ],
       "id": "d3895ea4-3c47-459d-a38b-7d542be1a1e8",
       "name": "Posta no Yotube",
@@ -455,6 +455,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-12T10:59:11.000Z",
-  "versionId": "9cdfe5d3-a2bb-48cd-a3b2-ff9de338503e"
+  "updatedAt": "2025-11-18T13:37:40.000Z",
+  "versionId": "5141ad7a-d982-4bf1-8f08-49bfa8077dae"
 }
