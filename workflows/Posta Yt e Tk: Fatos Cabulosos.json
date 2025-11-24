@@ -1,0 +1,461 @@
+{
+  "active": true,
+  "connections": {
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organiza o título e descrição": {
+      "main": [
+        [
+          {
+            "node": "Faz Download do Vídeo",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search files and folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gatilho de Agendamento": {
+      "main": [
+        [
+          {
+            "node": "Criador de títulos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Posta no Yotube": {
+      "main": [
+        [
+          {
+            "node": "Apaga do Drive Para Não Lotar",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Faz Download do Vídeo": {
+      "main": [
+        [
+          {
+            "node": "Posta no Yotube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gatilho de Agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criador de títulos": {
+      "main": [
+        [
+          {
+            "node": "Organiza o título e descrição",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-23T19:01:36.237Z",
+  "id": "J4MCGpoIQnFJAniB",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Posta Yt e Tk: Fatos Cabulosos",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "=https://drive.google.com/drive/folders/1QzZ1HUr_Sizkv7AgHwFdSOqHKbFTLltw",
+            "mode": "url"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1744,
+        368
+      ],
+      "id": "579899d9-bb85-4e50-9e8b-d365b84a3c18",
+      "name": "Search files and folders",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "mDDJs5Z9Lrm2g9CO",
+          "name": "Fato Cabuloso"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "12ccda93-c33b-42a2-86b4-63a7d1c67c7c",
+              "name": "titulo",
+              "value": "={{$json.message.content.match(/título:\\s?([^\\n;]+)/i)[1].trim().replace(/(\\\\n)+$/, \"\")}}",
+              "type": "string"
+            },
+            {
+              "id": "50e423af-3bd6-4274-916b-9341d3ee36a8",
+              "name": "descricao",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "6e2486f1-8c9f-4a55-90b8-785f128f1287",
+              "name": "id",
+              "value": "={{ $item(\"0\").$node[\"Gatilho de Agendamento\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -368,
+        352
+      ],
+      "id": "ec3fd5d9-538a-48e1-b479-e25dcf0ee99d",
+      "name": "Organiza o título e descrição"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 7 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 12 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 18 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2000,
+        368
+      ],
+      "id": "0afd2cff-3b4b-499e-8337-813e467e13f4",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lista = $input.all();\nif (lista.length > 0) {\n  const idx = Math.floor(Math.random() * lista.length);\n  return [{ json: lista[idx].json ? lista[idx].json : lista[idx] }];\n} else {\n  return [{ json: { erro: \"Nenhum vídeo encontrado!\" } }];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1184,
+        352
+      ],
+      "id": "54ca23b1-8d71-475b-bddd-72ace31ddeca",
+      "name": "Gatilho de Agendamento"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        736,
+        352
+      ],
+      "id": "a6c6b5bd-5517-49e2-a47e-76afdc5f3f94",
+      "name": "Apaga do Drive Para Não Lotar",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "mDDJs5Z9Lrm2g9CO",
+          "name": "Fato Cabuloso"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+        "regionCode": "BR",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "public"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        352,
+        352
+      ],
+      "id": "644eea42-a861-4a75-a8d0-f9af5667c81d",
+      "name": "Posta no Yotube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "mQjnBZTCGgv86x1l",
+          "name": "Fato Cabuloso"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -80,
+        352
+      ],
+      "id": "fb598369-66f3-41db-9283-cdae938de72d",
+      "name": "Faz Download do Vídeo",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "mDDJs5Z9Lrm2g9CO",
+          "name": "Fato Cabuloso"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "69510c74-a1ec-4427-a86a-9c4414ab23a4",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "=null",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1472,
+        368
+      ],
+      "id": "aa18eba5-4637-41cf-b3a8-4fc4acd0e299",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1168,
+        544
+      ],
+      "id": "c63bdb1a-f11a-470a-8142-5e28b87287bd",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1Fdjz2SwI-u8KbOl7fP8I1dqu8rs60ugKa3Yewgqr2Uc/edit?usp=drive_link",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Título": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+            "Video ": "=https://drive.google.com/uc?export=download&id={{ $json.id }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Video ",
+              "displayName": "Video ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Título",
+              "displayName": "Título",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        0,
+        0
+      ],
+      "id": "198c5776-3dbe-4bbc-a722-a8cd8d988b07",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "B9AWoy3CS16eHTdI",
+          "name": "Fato Cabuloso"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=voce é um assistente que cria títulos e descrição para o vídeo: {{ $json.name }}\n\nUtilze técnicas de SEO. Você está produzindo os títulos para as redes Fato Cabuloso. tema de histórias de terror, histórias bizarras, histórias reais incríveis etc. Até 60 caracteres, mas prefira títulos breves. Insira até 3 hashtahs bem posicionadas no final do título. \n\nvocê retorna uma lista assim:\n\n{\ntítulo: xxx xxx xxx\n};\n{\ndescrição: xxxxxxx xxxxxxx\nxxxxxx\n};\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        -832,
+        352
+      ],
+      "id": "5b69315b-46ea-4d56-a5ac-3e3a1e8ccd2b",
+      "name": "Criador de títulos",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-23T19:01:36.251Z",
+      "createdAt": "2025-11-23T19:01:36.251Z",
+      "role": "workflow:owner",
+      "workflowId": "J4MCGpoIQnFJAniB",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-23T20:09:24.000Z",
+  "versionId": "46438f57-045c-4a77-9783-7bf44824591b"
+}
