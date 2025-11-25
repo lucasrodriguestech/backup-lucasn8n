@@ -54,7 +54,7 @@
       "main": [
         [
           {
-            "node": "Apaga do Drive Para Não Lotar",
+            "node": "Wait",
             "type": "main",
             "index": 0
           }
@@ -95,6 +95,17 @@
         [
           {
             "node": "Organiza o título e descrição",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Apaga do Drive Para Não Lotar",
             "type": "main",
             "index": 0
           }
@@ -229,7 +240,7 @@
       "type": "n8n-nodes-base.googleDrive",
       "typeVersion": 3,
       "position": [
-        768,
+        976,
         288
       ],
       "id": "5091e22f-4fd0-4920-a461-41fa96cb0515",
@@ -430,6 +441,20 @@
           "name": "lucasrodrigues.contato"
         }
       }
+    },
+    {
+      "parameters": {
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        576,
+        320
+      ],
+      "id": "45ce28f6-b8fe-44ac-90b2-b631119d82fa",
+      "name": "Wait",
+      "webhookId": "9265c800-82f0-4eed-a8c5-6e92725b92ca"
     }
   ],
   "pinData": {},
@@ -455,6 +480,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-18T13:37:40.000Z",
-  "versionId": "5141ad7a-d982-4bf1-8f08-49bfa8077dae"
+  "updatedAt": "2025-11-24T09:54:40.000Z",
+  "versionId": "5ca06b7c-5e0b-4949-9f54-ac57ef29f0c9"
 }
