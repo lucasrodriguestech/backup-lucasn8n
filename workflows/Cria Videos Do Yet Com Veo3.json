@@ -1,0 +1,411 @@
+{
+  "active": false,
+  "connections": {
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Agente de Prompts",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Think": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          },
+          {
+            "node": "Agente de Prompts",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append or update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Agente de Prompts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agente de Prompts": {
+      "main": [
+        [
+          {
+            "node": "Generate a video",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate a video": {
+      "main": [
+        [
+          {
+            "node": "Upload file1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-24T16:22:20.928Z",
+  "id": "aiPhHNbH6bIPQ6jM",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Cria Videos Do Yet Com Veo3",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Me dê uma ideia de vídeo de [uma mulher bela cabelos castanhos claros e óleos verdes com roupa provocante trabalhando na roça ou em um ambiente de roça  falando algo como:\n\nGANCHOS:\n\ngostaria de ter entrado nesse negócio de internet antes por causa do tanto de coroa bonitão(homens mais velhos) que tem aqui\n\nesse negócio de roça não está fácil não\n\nestou precisando de um coroa bonitão pra me ajudar aqui na roça\n\n\nCTAs: \n\nme segue se voce me achou bonita.\n\nme segue se eu nao for tao feia.\n\nSe você não me achou tão feia, me segue ai\n\ncomenta ai se voce não me achou tão feia\n\nestou precisando de um coroa pra vir morar aqui comigo na roça\n]\n\nEstilo: filmagem de celular amadora.\n\nSeja Específico.\n\nideal que seja mais provocativo, menos engraçado.\n\nutilize apenas um CTA.\n\nVarie ganchos para ",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        80,
+        -80
+      ],
+      "id": "a64ef07c-53f7-46fd-94a8-cbc0717ad936",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        80,
+        -208
+      ],
+      "id": "4936bd0a-6a0a-479d-9a71-6ace06c85772",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolThink",
+      "typeVersion": 1.1,
+      "position": [
+        176,
+        -208
+      ],
+      "id": "b02bcde5-6c75-4a27-9bbe-af26d88ef7c8",
+      "name": "Think"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1Ri5U8gOZ6N9RG3rKlMEk6cU_ukvbLgg6HGCIy7-hbK4",
+          "mode": "list",
+          "cachedResultName": "veo 3 n8n automação",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ri5U8gOZ6N9RG3rKlMEk6cU_ukvbLgg6HGCIy7-hbK4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Ri5U8gOZ6N9RG3rKlMEk6cU_ukvbLgg6HGCIy7-hbK4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "legenda": "={{ $json.output[0].Legenda }}",
+            "ideia": "={{ $json.output[0].Ideia }}",
+            "ambiente": "={{ $json.output[0].Ambiente }}",
+            "produção": "={{ $json.output[0].Status }}",
+            "id": "==ROW()-1"
+          },
+          "matchingColumns": [
+            "id"
+          ],
+          "schema": [
+            {
+              "id": "id",
+              "displayName": "id",
+              "required": false,
+              "defaultMatch": true,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "ideia",
+              "displayName": "ideia",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "legenda",
+              "displayName": "legenda",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "produção",
+              "displayName": "produção",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ambiente",
+              "displayName": "ambiente",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "resultado",
+              "displayName": "resultado",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        496,
+        -80
+      ],
+      "id": "baa7d792-3a99-4422-b7ba-211ea18f6d73",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2zA5xm2J8G6YQave",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "[\n  {\n    \"Legenda\": \"Mergulhador remove redes de baleia #resgatebaleia #vidamarinha #resgatenooceano\",\n    \"Ideia\": \"Mergulhador corta cuidadosamente a rede emaranhada de uma baleia em apuros em mar aberto\",\n    \"Ambiente\": \"Oceano aberto, raios de sol atravessando a água, mergulhador e baleia, cinematográfico\",\n    \"Status\": \"em produção\"\n  }\n]"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        272,
+        -208
+      ],
+      "id": "0932cb89-b3ce-4764-8630-766faaba7a81",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Forneça-me um prompt do Veo3 para esta ideia:\n{{ $json.ideia }}\nEste é o ambiente:\n{{ $json.ambiente }}\nEssa é a legenda:\n{{ $json.legenda }}\n\nRetorne apenas o prompt em ingles, a fala da personagem deve ser em pt-BR. Não peça por legenda, não deve haver nada escrito.\n\n",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        800,
+        -80
+      ],
+      "id": "ccaff1f1-f268-456c-817e-6cd28634a93d",
+      "name": "Agente de Prompts"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "modelId": {
+          "__rl": true,
+          "value": "models/veo-3.1-generate-preview",
+          "mode": "list",
+          "cachedResultName": "models/veo-3.1-generate-preview"
+        },
+        "prompt": "={{ $json.output }}",
+        "options": {
+          "sampleCount": 1,
+          "durationSeconds": 8,
+          "aspectRatio": "9:16",
+          "personGeneration": "allow_all",
+          "binaryPropertyOutput": "data"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        -80
+      ],
+      "id": "da4d18df-bc70-4f0f-826f-4a9bbedb18e5",
+      "name": "Generate a video",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "Y6p0d9RhJ5HSGRIC",
+          "name": "Google Gemini(PaLM) Api account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "name": "={{ $('Append or update row in sheet').item.json.legenda }}",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "1h43A7rzc_ckKH3ot8ymntIp4SFjuRz0t",
+          "mode": "list",
+          "cachedResultName": "Videos de sensacion IA",
+          "cachedResultUrl": "https://drive.google.com/drive/folders/1h43A7rzc_ckKH3ot8ymntIp4SFjuRz0t"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        1328,
+        -80
+      ],
+      "id": "b8e86637-004c-4cd8-91c4-7245ac2c1f6b",
+      "name": "Upload file1",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 6 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 11 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 16 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -208,
+        -32
+      ],
+      "id": "ba165796-f71e-4d9e-ac44-743863f5a131",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-24T16:22:20.936Z",
+      "createdAt": "2025-11-24T16:22:20.936Z",
+      "role": "workflow:owner",
+      "workflowId": "aiPhHNbH6bIPQ6jM",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-24T23:35:27.000Z",
+  "versionId": "1ce7dde5-223d-495b-b320-ef53d59f2fc6"
+}
