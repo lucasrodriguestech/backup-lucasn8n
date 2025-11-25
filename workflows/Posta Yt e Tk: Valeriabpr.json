@@ -1,0 +1,1325 @@
+{
+  "active": true,
+  "connections": {
+    "Search files and folders": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Organiza o título e descrição": {
+      "main": [
+        [
+          {
+            "node": "Faz Download do Vídeo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Search files and folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gatilho de Agendamento": {
+      "main": [
+        []
+      ]
+    },
+    "Posta no Yotube": {
+      "main": [
+        []
+      ]
+    },
+    "Faz Download do Vídeo": {
+      "main": [
+        []
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Gatilho de Agendamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Criador de títulos": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Start Workflow": {
+      "main": [
+        [
+          {
+            "node": "Configurar Pasta Vídeo (ID)",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Configurar Pasta Música (ID)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar Arquivos de Vídeo": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Agregar Vídeos": {
+      "main": [
+        []
+      ]
+    },
+    "Agregar Músicas": {
+      "main": [
+        []
+      ]
+    },
+    "Configurar Pasta Vídeo (ID)": {
+      "main": [
+        [
+          {
+            "node": "Listar Arquivos de Vídeo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Configurar Pasta Música (ID)": {
+      "main": [
+        [
+          {
+            "node": "Listar Arquivos de Música",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Baixar Vídeo Localmente": {
+      "main": [
+        [
+          {
+            "node": "Salvar Vídeo no Disco",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Baixar Música Localmente": {
+      "main": [
+        [
+          {
+            "node": "Salvar Música no Disco",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Salvar Vídeo no Disco": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "Salvar Música no Disco": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 2
+          }
+        ]
+      ]
+    },
+    "FFmpeg: Juntar Vídeo e Música": {
+      "main": [
+        [
+          {
+            "node": "Ler Arquivo Final",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ler Arquivo Final": {
+      "main": [
+        [
+          {
+            "node": "Posta no Yotube",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Upload para Google Drive",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Upload para Google Drive": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "FFmpeg: Juntar Vídeo e Música",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Delete a file": {
+      "main": [
+        [
+          {
+            "node": "Limpeza de Arquivos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Delete a file",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Listar Arquivos de Música": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-12T09:41:10.828Z",
+  "id": "DPbThiF86QzUOEq6",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "Posta Yt e Tk: Valeriabpr",
+  "nodes": [
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "searchMethod": "query",
+        "returnAll": true,
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "https://drive.google.com/drive/folders/1h43A7rzc_ckKH3ot8ymntIp4SFjuRz0t",
+            "mode": "url"
+          }
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        -1744,
+        368
+      ],
+      "id": "a610d5c3-6d38-4523-ba17-b7ac71ba8501",
+      "name": "Search files and folders",
+      "alwaysOutputData": true,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "12ccda93-c33b-42a2-86b4-63a7d1c67c7c",
+              "name": "titulo",
+              "value": "={{$json.message.content.match(/título:\\s?([^\\n;]+)/i)[1].trim().replace(/(\\\\n)+$/, \"\")}}",
+              "type": "string"
+            },
+            {
+              "id": "50e423af-3bd6-4274-916b-9341d3ee36a8",
+              "name": "descricao",
+              "value": "=",
+              "type": "string"
+            },
+            {
+              "id": "6e2486f1-8c9f-4a55-90b8-785f128f1287",
+              "name": "id",
+              "value": "={{ $item(\"0\").$node[\"Gatilho de Agendamento\"].json[\"id\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -384,
+        352
+      ],
+      "id": "7769cd01-4d4f-4978-9ffa-a3f0866898b7",
+      "name": "Organiza o título e descrição"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 0 7 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 11 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 16 * * *"
+            },
+            {
+              "field": "cronExpression",
+              "expression": "0 0 20 * * *"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -2000,
+        368
+      ],
+      "id": "96a01c89-1424-47bf-a5f8-9e079158e463",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "jsCode": "const lista = $input.all();\nif (lista.length > 0) {\n  const idx = Math.floor(Math.random() * lista.length);\n  return [{ json: lista[idx].json ? lista[idx].json : lista[idx] }];\n} else {\n  return [{ json: { erro: \"Nenhum vídeo encontrado!\" } }];\n}\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -1136,
+        352
+      ],
+      "id": "98c17383-27cd-41c2-ada1-9465b0b4b344",
+      "name": "Gatilho de Agendamento"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        720,
+        352
+      ],
+      "id": "feef4012-a408-4bc5-b4bd-da66db735584",
+      "name": "Apaga do Drive Para Não Lotar",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}",
+        "regionCode": "BR",
+        "categoryId": "22",
+        "options": {
+          "privacyStatus": "public"
+        }
+      },
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        2176,
+        1312
+      ],
+      "id": "72f6ebda-1acf-4bfd-89a5-8679b58bd207",
+      "name": "Posta no Yotube",
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "NoM1GLG7CPUc2OGD",
+          "name": "Sensacion IA"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"id\"] }}",
+          "mode": "id"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        112,
+        352
+      ],
+      "id": "78165b13-044e-45da-a281-ebb40672e0db",
+      "name": "Faz Download do Vídeo",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "69510c74-a1ec-4427-a86a-9c4414ab23a4",
+              "leftValue": "={{ $json.name }}",
+              "rightValue": "=null",
+              "operator": {
+                "type": "string",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -1536,
+        368
+      ],
+      "id": "2a1a8108-03a9-4cb3-9e0d-c0068eb80859",
+      "name": "If"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1168,
+        544
+      ],
+      "id": "b38068f2-a115-4db5-9ead-a790b0e4e0fd",
+      "name": "No Operation, do nothing"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "https://docs.google.com/spreadsheets/d/1AKsN7WLrQMz2BB8xzcoDMBhde6Hg1sCGzNPfj90RjfI/edit?usp=drive_link",
+          "mode": "url"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1-US2yqAEMPGy0fT-r2rZRIAFN-RTnHuvvAT6Uw6v9-M/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Video": "=https://drive.google.com/uc?export=download&id={{ $json.id }}",
+            "Titulo": "={{ $item(\"0\").$node[\"Organiza o título e descrição\"].json[\"titulo\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Video",
+              "displayName": "Video",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Titulo",
+              "displayName": "Titulo",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        2512,
+        1536
+      ],
+      "id": "b88d1500-d36e-4e62-8b41-e684080a96b0",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2zA5xm2J8G6YQave",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "value": "gpt-4.1-mini",
+          "mode": "list",
+          "cachedResultName": "GPT-4.1-MINI"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=voce é um assistente que cria títulos e descrição para o vídeo: {{ $json.name }}\n\nUtilze técnicas de SEO. Você está produzindo os títulos para as redes sensacion ia. Historias emocionantes, historias eengraçadas, videos realistas. Até 60 caracteres, mas prefira títulos breves. Insira até 3 hashtahs bem posicionadas no final do título. \n\nvocê retorna uma lista assim:\n\n{\ntítulo: xxx xxx xxx\n};\n{\ndescrição: xxxxxxx xxxxxxx\nxxxxxx\n};\n"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.openAi",
+      "typeVersion": 1.8,
+      "position": [
+        864,
+        1152
+      ],
+      "id": "e4ff261f-a674-4232-ad42-7732224f9aa4",
+      "name": "Criador de títulos",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "3c2d46bc-361f-4e2d-bf40-58eb3f675f02",
+      "name": "Start Workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "position": [
+        -1280,
+        1536
+      ],
+      "typeVersion": 1,
+      "notes": "Gatilho manual para iniciar a automação."
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.VideoFolderID }}",
+            "mode": "id"
+          }
+        },
+        "options": {
+          "fields": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "id": "d848f74e-cae8-42d9-b9e6-856ef1f22372",
+      "name": "Listar Arquivos de Vídeo",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -704,
+        1440
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "s0DTtEIAh2oPOvzG",
+          "name": "lucasrodrigues.contato"
+        }
+      },
+      "notes": "Lista todos os arquivos dentro da pasta de vídeos, recuperando metadados."
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            },
+            {
+              "fieldToAggregate": "name"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b93834a9-87f0-45c9-97c5-f40b17daea3f",
+      "name": "Agregar Vídeos",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -448,
+        1264
+      ],
+      "typeVersion": 1,
+      "disabled": true,
+      "notes": "Agrega IDs e nomes dos arquivos de vídeo em arrays únicos (similar ao uso em [3, 4])."
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            },
+            {
+              "fieldToAggregate": "name"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "a6e45eda-a31b-4132-a3c0-42b5ff6c1a60",
+      "name": "Agregar Músicas",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -448,
+        1984
+      ],
+      "typeVersion": 1,
+      "disabled": true,
+      "notes": "Agrega IDs e nomes dos arquivos de música em arrays."
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.VideoFileID }}",
+          "mode": "id"
+        },
+        "options": {
+          "binaryPropertyName": "datavideo.mp4",
+          "fileName": "datavideo.mp4"
+        }
+      },
+      "id": "404ffe46-075a-423e-a27b-6eda2ec8ed92",
+      "name": "Baixar Vídeo Localmente",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        832,
+        1392
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "gmyjZBB9GGHcObPq",
+          "name": "Personavital(Sombra Policial)"
+        }
+      },
+      "notes": "Baixa o arquivo de vídeo selecionado, armazenando-o como dado binário (`video_binary`) [7]."
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "value": "={{ $json.MusicFileID }}",
+          "mode": "id"
+        },
+        "options": {
+          "binaryPropertyName": "datamusica.mp3",
+          "fileName": "datamusica.mp3"
+        }
+      },
+      "id": "0d74db48-e750-44e2-9cf3-8db1bbd19703",
+      "name": "Baixar Música Localmente",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        848,
+        1648
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "gmyjZBB9GGHcObPq",
+          "name": "Personavital(Sombra Policial)"
+        }
+      },
+      "notes": "Baixa o arquivo de música selecionado, armazenando-o como dado binário (`music_binary`) [8]."
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "video_input.mp4",
+        "dataPropertyName": "datavideo.mp4",
+        "options": {}
+      },
+      "id": "d9a93025-ba94-457b-8748-a800c2dc16e2",
+      "name": "Salvar Vídeo no Disco",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        1040,
+        1392
+      ],
+      "typeVersion": 1,
+      "notes": "Escreve o vídeo baixado no disco local com o nome fixo 'video_input.mp4' [9]."
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "music_input.mp3",
+        "dataPropertyName": "datamusica.mp3",
+        "options": {
+          "append": false
+        }
+      },
+      "id": "f54b4dc6-fc05-4504-bd34-e234febe30eb",
+      "name": "Salvar Música no Disco",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        1040,
+        1648
+      ],
+      "typeVersion": 1,
+      "notes": "Escreve a música baixada no disco local com o nome fixo 'music_input.mp3' [9]."
+    },
+    {
+      "parameters": {
+        "command": "ffmpeg -i video_input.mp4 -i music_input.mp3 \\\n-filter_complex \"[1:a]volume=0.14[music];[0:a][music]amix=inputs=2:duration=first:dropout_transition=3[a]\" \\\n-map 0:v -map \"[a]\" -c:v copy -c:a aac -b:a 192k -shortest output_final.mp4 -y\n"
+      },
+      "id": "fed3c60c-e525-4d1b-b324-b4a119bbc32b",
+      "name": "FFmpeg: Juntar Vídeo e Música",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [
+        1600,
+        1536
+      ],
+      "typeVersion": 1,
+      "notes": "Executa o FFmpeg. O comando junta o vídeo e a música (`-map`), usa `-shortest` para garantir que o clipe final tenha a duração do vídeo (conforme solicitado), e codifica em MP4. Usa o nome de saída 'output_final.mp4' [10, 11]."
+    },
+    {
+      "parameters": {
+        "fileSelector": "output_final.mp4",
+        "options": {}
+      },
+      "id": "2fbe30ee-a060-44ac-a942-a33113631301",
+      "name": "Ler Arquivo Final",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        1872,
+        1536
+      ],
+      "typeVersion": 1,
+      "notes": "Lê o 'output_final.mp4' do disco e o converte em um item binário (`data`) para o próximo nó de upload [12]."
+    },
+    {
+      "parameters": {
+        "name": "outputfinal.mp4",
+        "driveId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "My Drive"
+        },
+        "folderId": {
+          "__rl": true,
+          "value": "root",
+          "mode": "list",
+          "cachedResultName": "/ (Root folder)",
+          "cachedResultUrl": "https://drive.google.com/drive"
+        },
+        "options": {}
+      },
+      "id": "f0dcf3b3-b9fb-4540-b4c5-e1a4b69cd7b5",
+      "name": "Upload para Google Drive",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        2192,
+        1536
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "notes": "Faz o upload do arquivo binário final para o Google Drive. O nome do arquivo é gerado dinamicamente com um carimbo de data/hora."
+    },
+    {
+      "parameters": {
+        "command": "rm datavideo.mp4 datamusica.mp3 output_final.mp4"
+      },
+      "id": "bdda3273-1bd9-4058-bdad-5d7aea0d20a3",
+      "name": "Limpeza de Arquivos",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [
+        3296,
+        1536
+      ],
+      "typeVersion": 1,
+      "notes": "Deleta todos os arquivos temporários criados no disco local para limpar o ambiente (`rm` comando) [13, 14]."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "video_folder_id",
+              "name": "VideoFolderID",
+              "type": "string",
+              "value": "1h43A7rzc_ckKH3ot8ymntIp4SFjuRz0t"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f71d1a89-f688-4d4b-8c81-2ff30a7b825d",
+      "name": "Configurar Pasta Vídeo (ID)",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -960,
+        1440
+      ],
+      "typeVersion": 3.4,
+      "notes": "Defina o ID da pasta do Google Drive contendo os vídeos de fundo. **Ajuste este valor**."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "music_folder_id",
+              "name": "MusicFolderID",
+              "type": "string",
+              "value": "12T6ABEuR7WlZ2i88GqcB3U4DmuKVM4iR"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "64d42e6f-c4a6-4d83-ae11-d38c1fee15aa",
+      "name": "Configurar Pasta Música (ID)",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -960,
+        1648
+      ],
+      "typeVersion": 3.4,
+      "notes": "Defina o ID da pasta do Google Drive contendo as músicas. **Ajuste este valor**."
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "operation": "list"
+      },
+      "id": "719052b5-5731-461e-a40a-2d1cab7948cd",
+      "name": "Listar Arquivos de Vídeo2",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -1120,
+        2800
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "notes": "Lista todos os arquivos dentro da pasta de vídeos, recuperando metadados."
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            },
+            {
+              "fieldToAggregate": "name"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c2c4c744-5ce8-4a3a-8bed-38060440ebe7",
+      "name": "Agregar Vídeos1",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -912,
+        2800
+      ],
+      "typeVersion": 1,
+      "notes": "Agrega IDs e nomes dos arquivos de vídeo em arrays únicos (similar ao uso em [3, 4])."
+    },
+    {
+      "parameters": {
+        "fieldsToAggregate": {
+          "fieldToAggregate": [
+            {
+              "fieldToAggregate": "id"
+            },
+            {
+              "fieldToAggregate": "name"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "7c25dad5-bd21-4dc4-b212-44b8de359625",
+      "name": "Agregar Músicas1",
+      "type": "n8n-nodes-base.aggregate",
+      "position": [
+        -912,
+        3008
+      ],
+      "typeVersion": 1,
+      "notes": "Agrega IDs e nomes dos arquivos de música em arrays."
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "random_video",
+              "name": "VideoFileID",
+              "type": "string",
+              "value": "={{ $('aggregate_videos').item.json['id'][Math.floor(Math.random() * $('aggregate_videos').item.json['id'].length)] }}"
+            },
+            {
+              "id": "random_music",
+              "name": "MusicFileID",
+              "type": "string",
+              "value": "={{ $('aggregate_music').item.json['id'][Math.floor(Math.random() * $('aggregate_music').item.json['id'].length)] }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "22ee7e7d-8d28-4cdc-bc5b-7ad5731de6e9",
+      "name": "Selecionar Arquivos Aleatórios1",
+      "type": "n8n-nodes-base.set",
+      "position": [
+        -720,
+        2912
+      ],
+      "typeVersion": 3.4,
+      "notes": "Seleciona um ID de vídeo e um ID de música aleatórios das listas agregadas (similar ao método em [5, 6])."
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('pick_random_files').item.json.VideoFileID }}"
+        },
+        "options": {
+          "binaryPropertyName": "video_binary"
+        }
+      },
+      "id": "832bcec3-a61f-4240-b5c3-0f84426b8941",
+      "name": "Baixar Vídeo Localmente1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -512,
+        2800
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "notes": "Baixa o arquivo de vídeo selecionado, armazenando-o como dado binário (`video_binary`) [7]."
+    },
+    {
+      "parameters": {
+        "operation": "download",
+        "fileId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "={{ $('pick_random_files').item.json.MusicFileID }}"
+        },
+        "options": {
+          "binaryPropertyName": "music_binary"
+        }
+      },
+      "id": "d4ec609f-ade4-4953-8879-f179243fc41e",
+      "name": "Baixar Música Localmente1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -512,
+        3008
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "notes": "Baixa o arquivo de música selecionado, armazenando-o como dado binário (`music_binary`) [8]."
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "video_input.mp4",
+        "options": {}
+      },
+      "id": "cd7e0ffa-2dee-407e-830b-5750401e5c53",
+      "name": "Salvar Vídeo no Disco1",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        -320,
+        2800
+      ],
+      "typeVersion": 1,
+      "notes": "Escreve o vídeo baixado no disco local com o nome fixo 'video_input.mp4' [9]."
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "music_input.mp3",
+        "options": {}
+      },
+      "id": "17c7f92b-b857-4857-832b-58ecc0ee39be",
+      "name": "Salvar Música no Disco1",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        -320,
+        3008
+      ],
+      "typeVersion": 1,
+      "notes": "Escreve a música baixada no disco local com o nome fixo 'music_input.mp3' [9]."
+    },
+    {
+      "parameters": {
+        "command": "ffmpeg -i video_input.mp4 -i music_input.mp3 -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 192k -shortest output_final.mp4 -y"
+      },
+      "id": "8448f040-91b3-45c4-b615-2426127e75fc",
+      "name": "FFmpeg: Juntar Vídeo e Música1",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [
+        -112,
+        2912
+      ],
+      "typeVersion": 1,
+      "notes": "Executa o FFmpeg. O comando junta o vídeo e a música (`-map`), usa `-shortest` para garantir que o clipe final tenha a duração do vídeo (conforme solicitado), e codifica em MP4. Usa o nome de saída 'output_final.mp4' [10, 11]."
+    },
+    {
+      "parameters": {
+        "fileSelector": "output_final.mp4",
+        "options": {}
+      },
+      "id": "8423bf87-65fc-443f-a73e-8cc59d6cbb83",
+      "name": "Ler Arquivo Final1",
+      "type": "n8n-nodes-base.readWriteFile",
+      "position": [
+        96,
+        2912
+      ],
+      "typeVersion": 1,
+      "notes": "Lê o 'output_final.mp4' do disco e o converte em um item binário (`data`) para o próximo nó de upload [12]."
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "operation": "upload"
+      },
+      "id": "041530f8-3385-4ae0-bd64-cf1c24ac1968",
+      "name": "Upload para Google Drive1",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        288,
+        2912
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "notes": "Faz o upload do arquivo binário final para o Google Drive. O nome do arquivo é gerado dinamicamente com um carimbo de data/hora."
+    },
+    {
+      "parameters": {
+        "command": "rm video_input.mp4 music_input.mp3 output_final.mp4"
+      },
+      "id": "1a79e7ed-cba2-47a9-88f8-915cfd2500be",
+      "name": "Limpeza de Arquivos1",
+      "type": "n8n-nodes-base.executeCommand",
+      "position": [
+        496,
+        2912
+      ],
+      "typeVersion": 1,
+      "notes": "Deleta todos os arquivos temporários criados no disco local para limpar o ambiente (`rm` comando) [13, 14]."
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        -432,
+        1552
+      ],
+      "id": "1cef01fa-7e6c-46f2-844e-41cb6a9c8161",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "numberInputs": 3
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3.2,
+      "position": [
+        1344,
+        1520
+      ],
+      "id": "7ab5ea71-14b0-4b52-b744-e4c796bd054b",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "operation": "deleteFile",
+        "fileId": {
+          "__rl": true,
+          "mode": "list",
+          "value": ""
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleDrive",
+      "typeVersion": 3,
+      "position": [
+        3040,
+        1536
+      ],
+      "id": "77cdf0cb-4e9f-420c-ab86-9049e9d02ce5",
+      "name": "Delete a file",
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "amount": 1,
+        "unit": "minutes"
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2768,
+        1536
+      ],
+      "id": "37b7122a-bbeb-462e-9990-6a55ffef1f59",
+      "name": "Wait",
+      "webhookId": "608e1b2d-ad10-4730-902b-b0b572bf8c0e"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Recupera os arrays do vídeo e da música:\nconst videos = $node[\"Listar Arquivos de Vídeo\"].json;\nconst musicas = $node[\"Listar Arquivos de Música\"].json;\n\n// Sorteia índices:\nconst videoIndex = Math.floor(Math.random() * videos.length);\nconst musicIndex = Math.floor(Math.random() * musicas.length);\n\n// Monta o resultado:\nreturn [\n  {\n    VideoFileID: videos[videoIndex].id,\n    VideoFileName: videos[videoIndex].name,\n    MusicFileID: musicas[musicIndex].id\n  }\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -208,
+        1552
+      ],
+      "id": "a04b21d4-9536-4211-8fed-2e9b1c939449",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "resource": "fileFolder",
+        "filter": {
+          "folderId": {
+            "__rl": true,
+            "value": "={{ $json.MusicFolderID }}",
+            "mode": "id"
+          }
+        },
+        "options": {
+          "fields": [
+            "id",
+            "name"
+          ]
+        }
+      },
+      "id": "ca5c77f3-d5d5-4639-9aa8-0bbc39abfafa",
+      "name": "Listar Arquivos de Música",
+      "type": "n8n-nodes-base.googleDrive",
+      "position": [
+        -704,
+        1648
+      ],
+      "typeVersion": 3,
+      "credentials": {
+        "googleDriveOAuth2Api": {
+          "id": "MB2lyzzGrdOv9wkh",
+          "name": "Valeriabpr"
+        }
+      },
+      "notes": "Lista todos os arquivos dentro da pasta de vídeos, recuperando metadados."
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo",
+    "callerPolicy": "workflowsFromSameOwner",
+    "availableInMCP": false
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-12T09:41:10.829Z",
+      "createdAt": "2025-11-12T09:41:10.829Z",
+      "role": "workflow:owner",
+      "workflowId": "DPbThiF86QzUOEq6",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrenceRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-25T16:46:36.000Z",
+  "versionId": "0585155e-913d-469a-a26a-2da33c6a8a15"
+}
