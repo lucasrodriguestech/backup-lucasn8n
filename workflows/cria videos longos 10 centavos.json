@@ -1,0 +1,210 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Tópicos do Canal",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tópicos do Canal": {
+      "main": [
+        [
+          {
+            "node": "Gera Script",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Gera Script",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Gera Ideia do Vídeo",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gera Script": {
+      "main": [
+        [
+          {
+            "node": "Gera Ideia do Vídeo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "Gera Ideia do Vídeo",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-26T13:20:02.245Z",
+  "id": "KO1syJxOafeA4BAs",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "cria videos longos 10 centavos",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -256,
+        -32
+      ],
+      "id": "6452b1ad-5a5e-4541-a27f-7c91b4477dae",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "80c693c0-dc0b-46cf-84b2-712dbb7fafda",
+              "name": "topicos",
+              "value": "[\"Estoicismo ensinado através de analogias com animais\", \"Estoicismo\", \"Lições de vida\", \"Analogias com animais\", \"Motivacional\", \"Histórias inspiradoras\", \"Sabedoria antiga\"]",
+              "type": "array"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        -48,
+        -32
+      ],
+      "id": "4a06f370-ac20-4cdf-82cf-59db60a3fc6b",
+      "name": "Tópicos do Canal"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        128,
+        176
+      ],
+      "id": "d9e82782-62de-4fbb-98d5-89e77b093556",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=História sobre: {{ $json.topicos.randomItem() }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Você é um roteirista experiente para o YouTube, especializado em contar histórias cativantes. Transforme o conceito fornecido em uma narrativa vibrante e emocionalmente impactante que prenda a atenção dos espectadores instantaneamente e os mantenha engajados até o último momento. +++PRINCÍPIOS DA NARRATIVA+++ Comece com uma pergunta impactante ou uma afirmação surpreendente que gere curiosidade imediata. Desenvolva um personagem ou ideia central que enfrente um desafio ou transformação significativa. Construa tensão por meio de obstáculos, revelações ou insights crescentes. Incorpore detalhes sensoriais específicos que transportem os espectadores para a cena. Inclua um ponto de virada emocional que surpreenda ou comova o público. Termine com um insight, reviravolta ou pergunta memorável que permaneça na memória após a exibição. - Adapte o tom e os elementos filosóficos para corresponder ao conceito específico fornecido. +++ADAPTAÇÃO TEMÁTICA++++ - Identifique os princípios e valores essenciais dentro do conceito fornecido. Incorpore elementos filosóficos autênticos relevantes para o conceito. Use metáforas e exemplos que reflitam genuinamente a visão de mundo do conceito. Assegure-se de que o arco narrativo sirva à mensagem ou ao ensinamento do conceito. Equilibre o valor de entretenimento com a profundidade filosófica apropriada ao tema. +++ESTRUTURA+++ GANCHO (10%): Uma frase cativante que gere curiosidade imediata. PREPARAÇÃO (20%): Apresente a situação e o personagem/conceito central. COMPLICAÇÃO (40%): Apresente desafios ou revelações crescentes PONTO DE VIRADA (20%): Proporcione uma mudança ou percepção inesperada RESOLUÇÃO (10%): Ofereça uma reviravolta concisa ou uma conclusão instigante +++TOM E ESTILO+++ Use linguagem coloquial com frases de comprimentos variados Incorpore pausas estratégicas para dar ênfase Equilibre detalhes concretos específicos com verdades universais Empregue metáforas que conectem conceitos abstratos a experiências tangíveis Mantenha um ritmo que alterne entre tensão e alívio +++REQUISITOS DE FORMATO+++ - Forneça apenas texto narrativo em voz off, sem explicações ou instruções Sem descrições de cena, instruções de câmera ou texto de ação O resultado final deve estar pronto para ser lido diretamente como um roteiro completo"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        160,
+        -32
+      ],
+      "id": "2518cf36-b46a-47db-8402-c53a7be6bff8",
+      "name": "Gera Script"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.text }}",
+        "hasOutputParser": true,
+        "messages": {
+          "messageValues": [
+            {
+              "message": "=Você é um(a) criador(a) de conteúdo experiente no YouTube, com profundo conhecimento em engajamento de público e estratégias de SEO. Sua tarefa é criar um conceito de vídeo único e inesperado que se encaixe no tema do meu canal.\n\nAo fornecer o roteiro do vídeo, você deverá:\n\n1. Título: Crie um título impactante (30 a 60 caracteres) que:\n\n- Utilize palavras com forte apelo emocional\n- IMPORTANTE: Crie uma lacuna de curiosidade\n\n2. Descrição: Elabore uma descrição otimizada para SEO (2 a 3 frases) que:\n\n- Inclua palavras-chave importantes de forma natural\n- Explique a proposta de valor única do vídeo\n\n- Inclua uma chamada para ação clara\n\n- Mantenha um tom conversacional, mas que seja facilmente pesquisável\n\n3. Roteiro do Conteúdo: Forneça um plano estruturado com:\n\n- Gancho (primeiros 15 segundos para captar a atenção)\n\n- 3 a 5 segmentos principais com duração aproximada\n\n- Exemplos específicos, histórias ou dados a serem incluídos\n\n- Sugestões de momentos para interação com o público\n\n4. Miniatura: Crie uma descrição detalhada para um gerador de imagens que:\n\n- Descreva uma imagem de alto contraste e emocionalmente envolvente\n\n- Inclua elementos de texto que complementem (e não dupliquem) o título\n\n- Apresente elementos que se destaquem em tamanhos pequenos\n\n- Utilize a psicologia das cores estrategicamente para o público-alvo\n\n5. Personagem: Desenvolva um Descrição vívida do personagem principal ou mascote que:\n\n- Incorpora o tema do vídeo\n\n- Possui características visuais e personalidade distintas\n\n- Atrai o público-alvo\n\n- Pode ser usada de forma consistente em vários vídeos\n\n6. Estilo: Especifique o estilo visual para o gerador de imagens de IA, incluindo:\n\n- Estilo artístico (realista, desenho animado, anime, 3D, aquarela, etc.)\n\n- Clima visual (escuro, claro, vibrante, suave)\n\n- Referências artísticas (como artistas ou movimentos artísticos específicos)\n\n- Especificações técnicas (iluminação, perspectiva, composição)\n\n7. Palavras-chave: Forneça 20 palavras-chave de SEO que:\n\n- Devem ser separadas por vírgulas para serem coladas diretamente no YouTube\n\n- Incluam uma combinação de palavras-chave de alto volume e de cauda longa\n\n- Direcionem a uma intenção de busca específica\n\n- Estejam alinhadas com os tópicos em alta no nicho\n\n- Sejam naturalmente incorporáveis ​​ao conteúdo do vídeo\n\nForneça sua resposta em formato JSON válido com a seguinte estrutura:\n\n{\n\"title\": \"Seu título atraente aqui\",\n\n\"description\": \"Sua descrição otimizada para SEO aqui\",\n\"content_outline\": \"Esboço do conteúdo aqui\",\n\"thumbnail\": \"Instruções detalhadas para o gerador de imagens de IA\",\n\n\"character\": \"Descrição vívida do personagem principal/mascote\",\n\n\"style\": \"Especificações de estilo visual para o gerador de IA\",\n\n\"keywords\": \"palavra-chave1, palavra-chave2, palavra-chave3, ... (20 palavras-chave no total)\"\n}"
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.7,
+      "position": [
+        512,
+        -32
+      ],
+      "id": "83f3b1e5-4659-46be-90c8-5b18e0e35fb2",
+      "name": "Gera Ideia do Vídeo",
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\"title\": \"Seu título atraente aqui\",\n\n\"description\": \"Sua descrição otimizada para SEO aqui\",\n\"content_outline\": \"Esboço do conteúdo aqui\",\n\"thumbnail\": \"Instruções detalhadas para o gerador de imagens de IA\",\n\n\"character\": \"Descrição vívida do personagem principal/mascote\",\n\n\"style\": \"Especificações de estilo visual para o gerador de IA\",\n\n\"keywords\": \"palavra-chave1, palavra-chave2, palavra-chave3, ... (20 palavras-chave no total)\"\n}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        656,
+        176
+      ],
+      "id": "03149d89-f549-46f7-8102-247179e168d3",
+      "name": "Structured Output Parser"
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-26T13:20:02.309Z",
+      "createdAt": "2025-11-26T13:20:02.309Z",
+      "role": "workflow:owner",
+      "workflowId": "KO1syJxOafeA4BAs",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 0,
+  "updatedAt": "2025-11-26T13:49:12.000Z",
+  "versionId": "c34291dc-3bca-4db4-aaa0-e290bc3cd99c"
+}
