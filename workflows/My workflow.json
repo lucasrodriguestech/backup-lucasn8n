@@ -13,8 +13,8 @@
       ]
     }
   },
-  "createdAt": "2025-11-14T16:30:07.799Z",
-  "id": "BHhzkRJPkoawNLsL",
+  "createdAt": "2025-11-14T16:30:08.597Z",
+  "id": "WX2V626Jk2yG5I6N",
   "isArchived": true,
   "meta": {
     "templateCredsSetupCompleted": true
@@ -29,7 +29,7 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 2.1,
       "position": [
-        0,
+        -176,
         0
       ],
       "id": "85f7e169-cad8-4ccd-8342-9195ace2b302",
@@ -47,7 +47,7 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        208,
+        224,
         0
       ],
       "id": "3ab68cbc-7714-433a-9117-29d28db8e181",
@@ -66,16 +66,16 @@
   },
   "shared": [
     {
-      "updatedAt": "2025-11-14T16:30:07.823Z",
-      "createdAt": "2025-11-14T16:30:07.823Z",
+      "updatedAt": "2025-11-14T16:30:08.599Z",
+      "createdAt": "2025-11-14T16:30:08.599Z",
       "role": "workflow:owner",
-      "workflowId": "BHhzkRJPkoawNLsL",
+      "workflowId": "WX2V626Jk2yG5I6N",
       "projectId": "NmjiBPxycE3xYO0z"
     }
   ],
   "staticData": null,
   "tags": [],
   "triggerCount": 0,
-  "updatedAt": "2025-11-17T11:45:54.000Z",
-  "versionId": "a9560063-e73d-4b15-a0f3-3453fa5139a9"
+  "updatedAt": "2025-11-17T11:45:58.000Z",
+  "versionId": "a07f0452-e831-43ad-8765-6e30eae62261"
 }
