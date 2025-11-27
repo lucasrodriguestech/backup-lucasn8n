@@ -16,12 +16,12 @@
       "main": [
         [
           {
-            "node": "Append row in sheet",
+            "node": "Faz Download do Vídeo",
             "type": "main",
             "index": 0
           },
           {
-            "node": "Faz Download do Vídeo",
+            "node": "Append row in sheet",
             "type": "main",
             "index": 0
           }
@@ -247,8 +247,8 @@
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "s0DTtEIAh2oPOvzG",
-          "name": "lucasrodrigues.contato"
+          "id": "a7WXohFryVI10ZHA",
+          "name": "InvestBolado"
         }
       }
     },
@@ -266,8 +266,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        352,
-        336
+        272,
+        352
       ],
       "id": "d513914c-b52a-4c2a-895f-1e8febaf96d4",
       "name": "Posta no Yotube",
@@ -480,6 +480,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-24T09:55:09.000Z",
-  "versionId": "2f019383-961b-4e8a-9b53-3954f3b19fc2"
+  "updatedAt": "2025-11-27T16:49:17.000Z",
+  "versionId": "0d04d471-64ef-446b-97a5-9e312f266fe2"
 }
