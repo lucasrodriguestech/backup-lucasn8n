@@ -146,8 +146,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "s0DTtEIAh2oPOvzG",
-          "name": "lucasrodrigues.contato"
+          "id": "5TKPsBQ2Zsa4R8TK",
+          "name": "Cortes da Reflexão"
         }
       }
     },
@@ -266,8 +266,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        352,
-        304
+        272,
+        320
       ],
       "id": "63ecb19d-86d3-490d-b176-5bea689ff028",
       "name": "Posta no Yotube",
@@ -298,8 +298,8 @@
       "name": "Faz Download do Vídeo",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "s0DTtEIAh2oPOvzG",
-          "name": "lucasrodrigues.contato"
+          "id": "5TKPsBQ2Zsa4R8TK",
+          "name": "Cortes da Reflexão"
         }
       }
     },
@@ -480,6 +480,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-24T09:55:25.000Z",
-  "versionId": "c55d216d-3b0b-4288-911c-505d50537549"
+  "updatedAt": "2025-11-27T10:41:21.000Z",
+  "versionId": "5be76b16-5f3c-4ea4-b3ab-c99bd8d05158"
 }
