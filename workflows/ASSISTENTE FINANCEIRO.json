@@ -1,0 +1,514 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Edit Fields1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields1": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields2": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Simple Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser": {
+      "ai_outputParser": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_outputParser",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent": {
+      "main": [
+        [
+          {
+            "node": "Append row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Append row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Enviar texto",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2025-11-27T23:09:10.004Z",
+  "id": "GldCvjVHaru5tCJE",
+  "isArchived": false,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "name": "ASSISTENTE FINANCEIRO",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mensagem",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -480,
+        -112
+      ],
+      "id": "9e46954a-452d-4237-859c-7de05f2c87fd",
+      "name": "Webhook",
+      "webhookId": "f261875b-1a14-4fb8-ba85-bb0c897d2169"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "a3797f5d-2117-4ef0-8e89-32639f20db2d",
+              "leftValue": "={{ $json.body.event }}",
+              "rightValue": "messages.upsert",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "2b2e7998-b5b6-4bba-aabe-47c77738c469",
+              "leftValue": "={{ $json.body.data.key.remoteJid }}",
+              "rightValue": "=120363422402423654@g.us",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        -160,
+        -112
+      ],
+      "id": "a914ff85-550c-440f-9901-993a9e944f89",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "4013e0f0-68ca-4887-84a0-b1515b19073c",
+              "name": "body.data.messageType",
+              "value": "={{ $item(\"0\").$node[\"Webhook\"].json[\"body\"][\"data\"][\"messageType\"] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        112,
+        -128
+      ],
+      "id": "81720ce6-4321-4ef5-bea2-192870e94267",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "37f9341a-dfc9-44c2-a1fc-52ce2f663b04",
+              "leftValue": "={{ $item(\"0\").$node[\"Webhook\"].json[\"body\"][\"data\"][\"message\"][\"conversation\"] }}",
+              "rightValue": "QUANTO EU GASTEI NO MÊS?",
+              "operator": {
+                "type": "string",
+                "operation": "equals",
+                "name": "filter.operator.equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        320,
+        -128
+      ],
+      "id": "fb2c0680-96eb-44a6-9fa3-a15f44eea9ef",
+      "name": "If1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "b3d46519-a164-49ae-b128-b0a5599d537a",
+              "name": "body.data.messageType",
+              "value": "={{ $('Webhook').item.json.body.data.messageType }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        528,
+        -32
+      ],
+      "id": "d98fb555-6305-43cb-be0d-d0705e238cb7",
+      "name": "Edit Fields1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Obter a data e hora atual\nconst agora = new Date();\n\n// Formatar a data e hora como string (ex: DD/MM/YYYY 00:00:00)\nconst dataFormatada = agora.toLocaleString('pt-BR', {\n  timeZone: 'America/Sao_Paulo',\n  year: 'numeric',\n  month: '2-digit',\n  day: '2-digit',\n  hour: '2-digit',\n  minute: '2-digit',\n  second: '2-digit',\n});\n\n// Retornar como saída do node\nreturn [\n  {\n    json: {\n      dataHoraAtual: dataFormatada,\n      timestamp: agora.getTime(), // opcional: timestamp em ms\n    },\n  },\n];\n"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        736,
+        -32
+      ],
+      "id": "9b6f3f37-e010-446c-96a8-e0b9eb201cde",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "77fac246-8cce-471f-8a0a-16cc23719886",
+              "name": "dataHoraAtual",
+              "value": "={{ $json.dataHoraAtual }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        912,
+        -32
+      ],
+      "id": "3cfc400c-9a2d-4bf4-9412-070829f5c60f",
+      "name": "Edit Fields2"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Você é um assistente financeiro que retorna os dados de uma mensagem em formato de lista para adicionar em uma planilha.\n\nProduto comprado\n\nData e hora da compra\n\nloja\n\npreço\n\nMensagem do usuário: {{ $('Webhook').item.json.body.data.message.conversation }}\n\ndata e hora: {{ $json.dataHoraAtual }}\n",
+        "hasOutputParser": true,
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3,
+      "position": [
+        1104,
+        -32
+      ],
+      "id": "cb026e1d-a89c-4d84-8273-1b0acff78a76",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Webhook').item.json.body.data.key.remoteJid }}"
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1136,
+        208
+      ],
+      "id": "a5a84307-a98f-4c86-80e9-31931f62a667",
+      "name": "Simple Memory"
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-4.1-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        960,
+        208
+      ],
+      "id": "74d7d534-3300-4876-8a28-e00c36238fda",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "9tAaYio9SqQQ0jDd",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n  \"Produto comprado\": \"mouse\", \n  \"Data e hora da compra\": \"27/11/2025, 20:54:50\", \n  \"Loja\": \"havan\",\n  \"preço\": \"50 reais\"\n}\n"
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        1328,
+        208
+      ],
+      "id": "95a156ac-ed05-4ed1-855a-cf68339d1cff",
+      "name": "Structured Output Parser"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1MLE1AfHt4I0sO6QaRh7xYA3GFrtJY2aDxN2yU19N6Gc",
+          "mode": "list",
+          "cachedResultName": "ASSISTENTE FINANCEIRO",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MLE1AfHt4I0sO6QaRh7xYA3GFrtJY2aDxN2yU19N6Gc/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1MLE1AfHt4I0sO6QaRh7xYA3GFrtJY2aDxN2yU19N6Gc/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "O QUE FOI COMPRADO": "={{ $json.output[\"Produto comprado\"] }}",
+            "DATA": "={{ $json.output[\"Data e hora da compra\"] }}",
+            "ONDE": "={{ $json.output.Loja }}",
+            "PREÇO": "={{ $json.output[\"preço\"] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "O QUE FOI COMPRADO",
+              "displayName": "O QUE FOI COMPRADO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "ONDE",
+              "displayName": "ONDE",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "PREÇO",
+              "displayName": "PREÇO",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "DATA",
+              "displayName": "DATA",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1456,
+        -32
+      ],
+      "id": "5e52dd73-dd19-4ef4-bccc-e525ee1c37f1",
+      "name": "Append row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "2zA5xm2J8G6YQave",
+          "name": "lucasrodrigues.contato"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messages-api",
+        "instanceName": "lucasprincipal",
+        "remoteJid": "={{ $('Webhook').item.json.body.data.key.remoteJid }}",
+        "messageText": "Compra adicionada com sucesso!",
+        "options_message": {}
+      },
+      "type": "n8n-nodes-evolution-api.evolutionApi",
+      "typeVersion": 1,
+      "position": [
+        1680,
+        -32
+      ],
+      "id": "456d7d40-3518-4771-9fc1-10800d450c0e",
+      "name": "Enviar texto",
+      "credentials": {
+        "evolutionApi": {
+          "id": "0M6lgUPMjzb9ra4I",
+          "name": "Lucas Principal VMC"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "shared": [
+    {
+      "updatedAt": "2025-11-27T23:09:10.008Z",
+      "createdAt": "2025-11-27T23:09:10.008Z",
+      "role": "workflow:owner",
+      "workflowId": "GldCvjVHaru5tCJE",
+      "projectId": "NmjiBPxycE3xYO0z"
+    }
+  ],
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-11-28T00:04:18.000Z",
+  "versionId": "e77b75b2-b598-4bec-ba9c-040ad300cf08"
+}
