@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Webhook": {
       "main": [
@@ -195,7 +195,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        -160,
+        -224,
         -112
       ],
       "id": "a914ff85-550c-440f-9901-993a9e944f89",
@@ -218,7 +218,7 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
       "position": [
-        112,
+        48,
         -128
       ],
       "id": "81720ce6-4321-4ef5-bea2-192870e94267",
@@ -252,7 +252,7 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
       "position": [
-        320,
+        288,
         -128
       ],
       "id": "fb2c0680-96eb-44a6-9fa3-a15f44eea9ef",
@@ -509,6 +509,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-28T00:04:18.000Z",
-  "versionId": "e77b75b2-b598-4bec-ba9c-040ad300cf08"
+  "updatedAt": "2025-11-28T16:24:15.000Z",
+  "versionId": "5f2001af-38a0-43b0-80c9-0c039c8c71f5"
 }
