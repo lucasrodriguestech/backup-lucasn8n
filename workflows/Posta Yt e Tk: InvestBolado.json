@@ -1,5 +1,5 @@
 {
-  "active": true,
+  "active": false,
   "connections": {
     "Search files and folders": {
       "main": [
@@ -480,6 +480,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-27T16:49:17.000Z",
+  "updatedAt": "2025-11-28T23:21:32.000Z",
   "versionId": "0d04d471-64ef-446b-97a5-9e312f266fe2"
 }
