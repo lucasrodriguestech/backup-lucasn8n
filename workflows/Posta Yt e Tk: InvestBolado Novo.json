@@ -247,8 +247,8 @@
       "name": "Apaga do Drive Para Não Lotar",
       "credentials": {
         "googleDriveOAuth2Api": {
-          "id": "s0DTtEIAh2oPOvzG",
-          "name": "lucasrodrigues.contato"
+          "id": "a7WXohFryVI10ZHA",
+          "name": "InvestBolado"
         }
       }
     },
@@ -480,6 +480,6 @@
   },
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2025-11-28T23:37:05.000Z",
-  "versionId": "60e32f95-a81f-4855-ac86-7914e58882e2"
+  "updatedAt": "2025-11-29T15:28:50.000Z",
+  "versionId": "7cc748e9-0370-4a1c-9268-09e74a6e623b"
 }
